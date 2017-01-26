@@ -1,0 +1,26 @@
+{
+  "name": "pickandgol-web",
+  "version": "1.0.0",
+  "description": "Web Client for PickAndGol - Final project for Master Mobile III",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PickAndGol/PickAndGol-Web.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PickAndGol/PickAndGol-Web/issues"
+  },
+  "homepage": "https://github.com/PickAndGol/PickAndGol-Web#readme",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  }
+}
