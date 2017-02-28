@@ -10,10 +10,10 @@ angular.module("pickandgol")
         });
 */
 
-        $scope.saveUser = function() {
-            var user = { name: $scope.nombre,
-                        password:$scope.password,
-                        email:$scope.email};
+        $scope.saveUser = function(name,password,email) {
+            var user = { name: name,
+                        password:password,
+                        email:email};
             ServiceBackend.saveUser(user).then(function(response) {
                 console.log(user);
                // $scope.user.push(response.data);

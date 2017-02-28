@@ -9,20 +9,10 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/users-list.js"></script>
     <script src="scripts/services/service-backend.js"></script>
-
-<!--
-
-    &lt;!&ndash; Bootstrap css and js &ndash;&gt;
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
--->
-
+    <script src="scripts/directives/form-new-user.js"></script>
 
 </head>
 <body ng-app="pickandgol">
-
-  <!--Bar : <input type="text" ng-model="bar">-->
-  <!--<p>En este bar <span class="text-primary">{{ bar }}</span> los mejores pichos con Pickandgol</p>-->
   <header>
       <h1>Pick and Gol</h1>
       <h2>Encuentra tus eventos en tu bar mas cercano!</h2>
@@ -30,7 +20,10 @@
   <!-- Controlador 'ListaRecetas' -->
   <section ng-controller="UsersList">
       <!-- Form new user -->
-      <div>
+
+      <form-new-user save-to-click="saveUser(name,password,email)"></form-new-user>
+
+      <!--<div>
           <p> Introduce tus datos para registrarte</p>
       </div>
       <div>
@@ -44,7 +37,7 @@
      </div>
       <div>
           <button ng-click="saveUser()">Registrar</button>
-      </div>
+      </div>-->
       <!-- user collection -->
       <!--    <ul>
               <li ng-repeat="user in user">{{user.nombre}}</li>
