@@ -19,7 +19,8 @@
   "dependencies": {
     "@angular/router": "^0.2.0",
     "angular": "^1.6.1",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "skeleton-css": "^2.0.4"
   },
   "devDependencies": {
     "lite-server": "^2.2.2"
