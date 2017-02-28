@@ -26,7 +26,7 @@ angular.module("pickandgol").component("newUser",{
                     alert("Asegurate de completar todos los datos y que estos sean validos");
                 }else if (response.data.data.code === 409){
                     console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
-                    alert("ERROR: Conflicto con el email introducido, este email ya esta registrado");
+                    alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
                 }else{
                     alert("Usuario "+ user.name +" registrado!! ");
                 }
