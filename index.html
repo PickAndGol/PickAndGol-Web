@@ -1,49 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <title>PickandGol</title>
 
-    <script src="node_modules/angular/angular.js"></script>
     <!-- Angular js -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
+    <!-- document config module -->
     <script src="scripts/app.js"></script>
+    <!-- Components,services,directives -->
     <script src="scripts/controllers/users-list.js"></script>
     <script src="scripts/services/service-backend.js"></script>
     <script src="scripts/directives/form-new-user.js"></script>
-
+    <script src="scripts/components/new-user.js"></script>
+    <script src="scripts/components/root.js"></script>
 </head>
 <body ng-app="pickandgol">
-  <header>
-      <h1>Pick and Gol</h1>
-      <h2>Encuentra tus eventos en tu bar mas cercano!</h2>
-  </header>
-  <!-- Controlador 'ListaRecetas' -->
-  <section ng-controller="UsersList">
-      <!-- Form new user -->
-
-      <form-new-user save-to-click="saveUser(name,password,email)"></form-new-user>
-
-      <!--<div>
-          <p> Introduce tus datos para registrarte</p>
-      </div>
-      <div>
-        <input type="text" placeholder="nombre" ng-model="nombre" required>
-      </div>
-      <div>
-          <input type="password" placeholder="password" ng-model="password" required>
-      </div>
-     <div>
-         <input type="email" placeholder="email" ng-model="email"required>
-     </div>
-      <div>
-          <button ng-click="saveUser()">Registrar</button>
-      </div>-->
-      <!-- user collection -->
-      <!--    <ul>
-              <li ng-repeat="user in user">{{user.nombre}}</li>
-          </ul>
-      -->
-  </section>
-
+ <root></root>
 </body>
 </html>
