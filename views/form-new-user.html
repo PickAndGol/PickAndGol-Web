@@ -1,16 +1,18 @@
-<div>
-    <form name="alta">
-        <div>
-            <input id="user-name" type="text" ng-model="name" placeholder="nombre" required>
-        </div>
-        <div>
-            <input id="user-password" type="password" ng-model="password" placeholder="password" required>
-        </div>
-        <div>
-            <input id="user-email" type="email" ng-model="email" placeholder="email" required>
-        </div>
-        <div>
-            <button id="button-register" ng-click= "notifyUser()" ng-disabled="alta.$invalid"> Registrar </button>
-        </div>
-    </form>
+<div class="row">
+    <div class="twelve columns">
+        <form name="alta">
+            <div>
+                <input id="user-name" type="text" ng-model="name" placeholder="nombre" required>
+            </div>
+            <div>
+                <input id="user-password" type="password" ng-model="password" placeholder="password" required>
+            </div>
+            <div>
+                <input id="user-email" type="email" ng-model="email" placeholder="email" required>
+            </div>
+            <div>
+                <button id="button-register" ng-click="notifyUser()" ng-disabled="alta.$invalid"> Registrar</button>
+            </div>
+        </form>
+    </div>
 </div>

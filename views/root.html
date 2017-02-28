@@ -1,17 +1,29 @@
-<header>
-    <h1>Pick and Gol</h1>
-    <h2>Encuentra tus eventos en tu bar mas cercano!</h2>
-</header>
+<div class="container">
+    <div class="row">
+        <div class="twelve columns">
+            <h1>Mi Libro de Recetas</h1>
+            <header>
+                <h1>Pick and Gol</h1>
 
-<nav>
-    <ul>
-        <li>
-            <a ng-link="['Login']">Login</a>
-        </li>
-        <li>
-            <a ng-link="['NewUser']">Registrarse</a>
-        </li>
-    </ul>
-</nav>
+                <h3>Encuentra tus eventos en tu bar mas cercano!</h3>
+            </header>
+        </div>
+    </div>
 
-<ng-outlet></ng-outlet>
+    <div class="row">
+        <div class="twelve columns">
+            <nav class="navigation-bar">
+                <ul>
+                    <li>
+                        <a ng-link="['Login']">Login</a>
+                    </li>
+                    <li>
+                        <a ng-link="['NewUser']">Registrarse</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <ng-outlet></ng-outlet>
+</div>
