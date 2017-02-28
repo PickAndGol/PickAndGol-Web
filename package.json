@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/PickAndGol/PickAndGol-Web#readme",
   "dependencies": {
+    "@angular/router": "^0.2.0",
     "angular": "^1.6.1",
     "bootstrap": "^3.3.7"
   },
