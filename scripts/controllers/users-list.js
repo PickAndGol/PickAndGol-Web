@@ -17,7 +17,7 @@ angular.module("pickandgol")
             ServiceBackend.saveUser(user).then(function(response) {
                 console.log(user);
                // $scope.user.push(response.data);
-                console.log("datoooos",response.data);
+                console.log("data....",response.data);
                 console.log("response full", response);
 
                 if(response.data.data.code === 400){
