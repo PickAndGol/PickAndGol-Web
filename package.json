@@ -4,13 +4,15 @@
   "description": "Web Client for PickAndGol - Final project for Master Mobile III",
   "main": "index.js",
   "scripts": {
-    "start": "lite-server"
+    "lite-server": "lite-server",
+    "watch-sass": "sass --watch sass:styles",
+    "dev": "concurrently \"npm run watch-sass\" \"npm run lite-server\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PickAndGol/PickAndGol-Web.git"
   },
-  "author": "",
+  "author": "@PickAndGol",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/PickAndGol/PickAndGol-Web/issues"
@@ -23,6 +25,7 @@
     "lite-server": "^2.2.2"
   },
   "devDependencies": {
-    "lite-server": "^2.2.2"
+    "lite-server": "^2.2.2",
+    "concurrently": "^2.1.0"
   }
 }
