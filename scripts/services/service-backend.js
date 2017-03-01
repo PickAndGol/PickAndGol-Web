@@ -12,7 +12,7 @@ angular.module("pickandgol").service("ServiceBackend", function($http){
 */
     //save new user
     this.saveUser = function(user){
-        return $http.post("http://localhost:4000/api/v1/users/register", user);
-        //return $http.post("http://pickandgol.com/api/v1/users/register", user);
+        //return $http.post("http://localhost:4000/api/v1/users/register", user);
+        return $http.post("http://pickandgol.com/api/v1/users/register", user);
     }
 });
