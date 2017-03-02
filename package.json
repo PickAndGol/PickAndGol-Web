@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lite-server": "lite-server",
-    "watch-sass": "sass --watch sass:styles",
-    "dev": "concurrently \"npm run watch-sass\" \"npm run lite-server\""
+    "watch-stylus": "stylus -m --watch stylus --out styles",
+    "dev": "concurrently \"npm run watch-stylus\" \"npm run lite-server\""
   },
   "repository": {
     "type": "git",

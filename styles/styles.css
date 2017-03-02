@@ -1,5 +1,7 @@
-body {
-  font: 100% Helvetica, sans-serif;
-  color: #337; }
-
+.foo {
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  margin-left: 200px;
+}
 /*# sourceMappingURL=styles.css.map */
