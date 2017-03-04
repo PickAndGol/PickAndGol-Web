@@ -16,10 +16,9 @@ angular.module("pickandgol").component("newLogin",{
         var favoriteUser;
         var self = this;
 
-        self.saveLogin = function(name,password,email) {
-            var login = { name: name,
-                password:password,
-                email:email};
+        self.saveLogin = function(password,email) {
+            var login = {password:password,
+                        email:email};
             ServiceBackend.saveLogin(login).then(function(response) {
                 console.log(login);
                 loginData = response.data.data;
@@ -41,12 +40,15 @@ angular.module("pickandgol").component("newLogin",{
                 }else if (response.data.data.code === 409){
                     console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
                     alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
+                }else if (response.data.data.code === 401){
+                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
+                    alert("ERROR: Los datos no son correctos, comprueba que la contraseña o tu email son correctos.");
                 }else if (response.data.data.code === 404){
                     console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
                     alert("ERROR: Usuario no encontrado, asegurate de introducir los datos correctos o registrate");
                 }
                 else{
-                    alert("Usuario "+ login.name +" Logueado!! ");
+                    alert("Usuario "+ response.data.data.name +" Logueado!! ");
                 }
 
             });

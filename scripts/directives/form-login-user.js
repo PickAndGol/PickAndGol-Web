@@ -12,8 +12,7 @@ angular.module("pickandgol").directive("formLoginUser", function () {
         },
         link: function(scope){
             scope.notifyLogin = function(){
-                scope.loginToClick({    name: scope.name,
-                                    password: scope.password,
+                scope.loginToClick({    password: scope.password,
                                         email: scope.email});
             };
         }
