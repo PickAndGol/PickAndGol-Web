@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lite-server": "lite-server",
-    "watch-stylus": "stylus -m --watch stylus --out styles",
+    "watch-stylus": "stylus -m -u rupture --watch stylus --out styles",
     "dev": "concurrently \"npm run watch-stylus\" \"npm run lite-server\""
   },
   "repository": {
@@ -23,6 +23,7 @@
     "angular-router": "0.0.2",
     "bootstrap": "^3.3.7",
     "lite-server": "^2.2.2",
+    "rupture": "^0.6.2",
     "stylus": "^0.54.5"
   },
   "devDependencies": {

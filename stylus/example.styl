@@ -1,0 +1,10 @@
+@import('rupture-config')
+
+.foo2
+  width 40px
+  position relative
+  left 50%
+  margin-left (@width / 2)
+
+  +below('wdesktop')
+    text-align center

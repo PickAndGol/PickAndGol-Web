@@ -1,0 +1,12 @@
+.foo2 {
+  width: 40px;
+  position: relative;
+  left: 50%;
+  margin-left: 20px;
+}
+@media only screen and (max-width: 1280px) {
+  .foo2 {
+    text-align: center;
+  }
+}
+/*# sourceMappingURL=example.css.map */
