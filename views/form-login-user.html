@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="twelve columns">
+        <form name="login">
+            <div>
+                <h5> Inicia sesión para guardar o crear eventos </h5>
+            </div>
+            <div>
+                <input id="login-name" type="text" ng-model="name" placeholder="nombre" required>
+            </div>
+            <div>
+                <input id="login-password" type="password" ng-model="password" placeholder="password" >
+            </div>
+            <div>
+                <input id="login-email" type="email" ng-model="email" placeholder="email" >
+            </div>
+            <div>
+                <button id="login-button" ng-click="notifyLogin()" ng-disabled="login.$invalid"> Login</button>
+            </div>
+        </form>
+    </div>
+</div>

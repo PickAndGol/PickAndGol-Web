@@ -3,12 +3,12 @@
  */
 angular.module("pickandgol").component("root", {
     $routeConfig: [
-    //TODO: Login
-    /*{
+    // Login
+    {
         name: "Login",
-        path: "/user-login",
-        component: "userLogin"
-    },*/ {
+        path: "/login",
+        component: "newLogin"
+    }, {
         name: "NewUser",
         path: "/new-user",
         component: "newUser",
