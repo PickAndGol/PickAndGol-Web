@@ -14,9 +14,9 @@ angular.module("pickandgol").component("root", {
             component: "newUser",
         },
         {
-            name: "RecoverUser",
+            name: "Recover",
             path: "/recover-user",
-            component: "recoverUser",
+            component: "recover",
         }],
     templateUrl: "views/root.html"
 });
