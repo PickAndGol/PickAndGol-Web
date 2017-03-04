@@ -10,6 +10,7 @@ angular.module("pickandgol").component("recover",{
     controller: function(ServiceBackend){
 
         var self = this;
+        var recover;
 
         self.recoverUser = function(email) {
             var recover = {email:email};
@@ -17,17 +18,9 @@ angular.module("pickandgol").component("recover",{
                 console.log(recover);
                 // $scope.user.push(response.data);
                // console.log("data....",response.data);
+                recover = response.data.data;
                 console.log("response full", response);
-
-                /*if(response.data.data.code === 400){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
-                    alert("Asegurate de completar todos los datos y que estos sean validos");
-                }else if (response.data.data.code === 409){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
-                    alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
-                }else{
-                    alert("Usuario "+ user.name +" registrado!! ");
-                }*/
+                //console.log("response data/data", response.data.data);
 
             });
         };
