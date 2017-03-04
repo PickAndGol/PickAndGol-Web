@@ -22,7 +22,8 @@
     "angular": "^1.6.1",
     "angular-router": "0.0.2",
     "bootstrap": "^3.3.7",
-    "lite-server": "^2.2.2"
+    "lite-server": "^2.2.2",
+    "stylus": "^0.54.5"
   },
   "devDependencies": {
     "lite-server": "^2.2.2",
