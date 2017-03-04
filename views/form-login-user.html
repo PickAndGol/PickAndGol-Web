@@ -2,11 +2,8 @@
     <div class="twelve columns">
         <form name="login">
             <div>
-                <h5> Inicia sesión para guardar o crear eventos </h5>
+                <h5> Inicie sesión para guardar o crear eventos </h5>
             </div>
-         <!--   <div>
-                <input id="login-name" type="text" ng-model="name" placeholder="nombre" required>
-            </div>-->
             <div>
                 <input id="login-password" type="password" ng-model="password" placeholder="password" >
             </div>
@@ -14,10 +11,13 @@
                 <input id="login-email" type="email" ng-model="email" placeholder="email" >
             </div>
             <div>
-                <button id="login-button" ng-click="notifyLogin()" ng-disabled="login.$invalid"> Login</button>
+                <button id="login-button" ng-click="notifyLogin()" ng-disabled="login.$invalid">Login</button>
             </div>
-            <div>
-                <a href="#"> Recuperar contraseña</a>
+                <p>
+                    Si no recuerda su contraseña solicite una nueva desde
+                       <a ng-link="['Recover']"><b>aquí</b></a>
+                </p>
+
             </div>
         </form>
     </div>
