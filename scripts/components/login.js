@@ -7,7 +7,7 @@ angular.module("pickandgol").component("newLogin",{
     },
     templateUrl: "views/login.html",
 
-    controller: function(ServiceBackend){
+    controller: function(usersService){
 
         var loginData;
         var idUser;
@@ -16,10 +16,10 @@ angular.module("pickandgol").component("newLogin",{
         var favoriteUser;
         var self = this;
 
-        self.saveLogin = function(password,email) {
+        self.userLogin = function(password,email) {
             var login = {password:password,
                         email:email};
-            ServiceBackend.saveLogin(login).then(function(response) {
+            usersService.userLogin(login).then(function(response) {
                 console.log(login);
                 loginData = response.data.data;
                 idUser = response.data.data.id;

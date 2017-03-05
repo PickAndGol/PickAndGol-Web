@@ -7,14 +7,14 @@ angular.module("pickandgol").component("recover",{
     },
     templateUrl: "views/recover-password.html",
 
-    controller: function(ServiceBackend){
+    controller: function(usersService){
 
         var self = this;
         var recover;
 
         self.recoverUser = function(email) {
             var recover = {email:email};
-            ServiceBackend.recoverUser(recover).then(function(response) {
+            usersService.recoverUser(recover).then(function(response) {
                 console.log(recover);
                 // $scope.user.push(response.data);
                // console.log("data....",response.data);

@@ -7,7 +7,7 @@ angular.module("pickandgol").component("newUser",{
     },
     templateUrl: "views/user-register.html",
 
-    controller: function(ServiceBackend){
+    controller: function(usersService){
 
         var self = this;
 
@@ -15,7 +15,7 @@ angular.module("pickandgol").component("newUser",{
             var user = { name: name,
                 password:password,
                 email:email};
-            ServiceBackend.saveUser(user).then(function(response) {
+            usersService.saveUser(user).then(function(response) {
                 console.log(user);
                 // $scope.user.push(response.data);
                 console.log("data....",response.data);

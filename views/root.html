@@ -4,43 +4,13 @@
 
 <div class="container">
 
-    <!--<div class="events-list">
-        <nav class="navigation-bar">
-            <ul>
-                <li>
-                    <!-- 'ngLink' establishes route to navigate name -->
-                    <!--a ng-link="['Events']">Eventos</a>
-                </li>
-                <!--li>
-                    <a ng-link="['NewProduct']">Nuevo producto</a>
-                </li-->
-            <!--ul>
-        </nav>
-    </div>-->
-
-    <!-- Dynamic zone -->
-    <ng-outlet></ng-outlet>
-
-
-</div>
-
-<footer class="main-footer">
-    <h1>Pick and Gol. Encuentra eventos en tu bar favorito</h1>
-</footer><div class="container">
-    <div class="row">
-        <div class="twelve columns">
-            <header>
-                <h1>Pick and Gol</h1>
-
-                <h3>Encuentra tus eventos en tu bar mas cercano!</h3>
-            </header>
-        </div>
-    </div>
-
     <div class="row">
         <div class="twelve columns">
             <nav class="navigation-bar">
                 <ul>
+                    <li>
+                        <a ng-link="['Events']">Eventos</a>
+                    </li>
                     <li>
                         <a ng-link="['Login']">Login</a>
                     </li>
@@ -52,5 +22,13 @@
         </div>
     </div>
 
+    <!-- Dynamic zone -->
     <ng-outlet></ng-outlet>
+
+
 </div>
+
+<footer class="main-footer">
+    <h1>Pick and Gol. Encuentra eventos en tu bar favorito</h1>
+</footer>
+
