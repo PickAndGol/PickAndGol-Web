@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="twelve columns">
+        <form name="event">
+            <div>
+                <h5>Crear un nuevo evento</h5>
+            </div>
+            <div>
+                <input id="event-name" type="text" ng-model="name" placeholder="Nombre del evento" required>
+            </div>
+            <div>
+                <input id="event-date" type="datetime" ng-model="date" placeholder="fecha del evento" required>
+            </div>
+            <div>
+                <input id="event-description" type="text" ng-model="description" placeholder="descripción del evento" required>
+            </div>
+            <div>
+                <button id="event-button" ng-click="notifyEvent()" ng-disabled="event.$invalid"> Crear </button>
+            </div>
+        </form>
+    </div>
+</div>
