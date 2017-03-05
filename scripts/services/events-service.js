@@ -8,6 +8,15 @@ angular
             return $http.get(Properties.serverUrl + Properties.endpointEvents);
         };
 
+
+        this.getImagePath = function (path) {
+            const defaultPath = '/static/events/default-match.jpg';
+
+            return path || defaultPath;
+        };
+
+
+
         // Save product example:
         /*
         this.saveProduct = function (product, image) {

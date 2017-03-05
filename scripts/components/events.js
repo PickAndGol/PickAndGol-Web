@@ -9,8 +9,11 @@ var ctrl = function (eventsService) {
 
             // In 'data' property it's its body
             self.events = response.data.data;
-            console.log(self.events);
         });
+
+    // Get image path
+    self.getImagePath = eventsService.getImagePath;
+
 };
 
 ctrl.$inject = ["eventsService"];
