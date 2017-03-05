@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Indicate page from which Single Page Application is build -->
+    <base href="/">
+
     <meta charset="UTF-8">
     <title>PickandGol</title>
 
     <!-- Angular js -->
     <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
+
+    <!-- Module configuration script -->
+    <script src="scripts/app.js"></script>
+
+    <!-- Components -->
+    <script src="scripts/components/events.js"></script>
+    <script src="scripts/components/root.js"></script>
+    <!-- Services -->
+    <script src="scripts/services/events-service.js"></script>
+    <!-- Values -->
+    <script src="scripts/values/properties.js"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/styles.css"/>
-
-    <!-- Bootstrap css and js -->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
 
 </head>
 <body ng-app="pickandgol">
@@ -21,7 +31,7 @@
   <!-- Root component -->
     <root></root>
 
-  Bar : <input type="text" ng-model="bar">
-  <p>En este bar <span class="text-primary">{{ bar }}</span> los mejores pichos con Pickandgol</p>
+  <!--Bar : <input type="text" ng-model="bar">
+  <p>En este bar <span class="text-primary">{{ bar }}</span> los mejores pichos con Pickandgol</p-->
 </body>
 </html>
