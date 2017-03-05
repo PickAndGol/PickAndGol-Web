@@ -12,17 +12,17 @@ angular.module("pickandgol").service("ServiceBackend", function($http){
 */
     //save new user
     this.saveUser = function(user){
-        return $http.post("http://localhost:4000/api/v1/users/register", user);
-        //return $http.post("http://pickandgol.com/api/v1/users/register", user);
+        //return $http.post("http://localhost:4000/api/v1/users/register", user);
+        return $http.post("http://pickandgol.com/api/v1/users/register", user);
     }
     //Login
     this.saveLogin = function(login){
-        return $http.post("http://localhost:4000/api/v1/users/recover", login);
-        //return $http.post("http://pickandgol.com/api/v1/users/login", login);
+        //return $http.post("http://localhost:4000/api/v1/users/recover", login);
+        return $http.post("http://pickandgol.com/api/v1/users/login", login);
     }
     //recover user
     this.recoverUser = function(recover){
-        return $http.post("http://localhost:4000/api/v1/users/recover", recover);
-        //return $http.post("http://pickandgol.com/api/v1/users/recover", recoverUser);
+        //return $http.post("http://localhost:4000/api/v1/users/recover", recover);
+        return $http.post("http://pickandgol.com/api/v1/users/recover", recover);
     }
 });
