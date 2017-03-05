@@ -17,6 +17,11 @@ angular.module("pickandgol").component("root", {
             name: "Recover",
             path: "/recover-user",
             component: "recover",
+        },
+        {
+            name: "NewEvent",
+            path: "/new-event",
+            component: "newEvent",
         }],
     templateUrl: "views/root.html"
 });
