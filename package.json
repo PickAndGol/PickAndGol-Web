@@ -4,13 +4,15 @@
   "description": "Web Client for PickAndGol - Final project for Master Mobile III",
   "main": "index.js",
   "scripts": {
-    "start": "lite-server"
+    "lite-server": "lite-server",
+    "watch-stylus": "stylus -m -u rupture --watch stylus --out styles",
+    "dev": "concurrently \"npm run watch-stylus\" \"npm run lite-server\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PickAndGol/PickAndGol-Web.git"
   },
-  "author": "",
+  "author": "@PickAndGol",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/PickAndGol/PickAndGol-Web/issues"
@@ -20,9 +22,16 @@
     "@angular/router": "^0.2.0",
     "angular": "^1.6.1",
     "bootstrap": "^3.3.7",
-    "skeleton-css": "^2.0.4"
+    "skeleton-css": "^2.0.4",
+    "angular-router": "0.0.2",
+    "@angular/router": "^0.2.0",
+    "bootstrap": "^3.3.7",
+    "lite-server": "^2.2.2",
+    "rupture": "^0.6.2",
+    "stylus": "^0.54.5"
   },
   "devDependencies": {
-    "lite-server": "^2.2.2"
+    "lite-server": "^2.2.2",
+    "concurrently": "^2.1.0"
   }
 }
