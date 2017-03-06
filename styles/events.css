@@ -17,4 +17,17 @@
   max-width: 100%;
   max-height: 100%;
 }
+.event-items li .event-item-container .event-detail .event-title {
+  display: block;
+  color: #6a6a6a;
+  text-decoration: none;
+}
+.event-items li .event-item-container .event-detail .event-title:hover {
+  text-decoration: underline;
+}
+.event-items li .event-item-container .event-detail .event-description {
+  display: block;
+  color: #b5b5b5;
+  text-decoration: none;
+}
 /*# sourceMappingURL=events.css.map */
