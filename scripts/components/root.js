@@ -27,7 +27,7 @@ angular
             },
             {
                 name: "Event",
-                path: "/events/:id",
+                path: "/events/:_id",
                 component: "event"
             }
         ],
