@@ -3,7 +3,7 @@ angular
     .module("pickandgol")
     .component("root", {
         $routeConfig: [
-            // Login
+            // Users
             {
                 name: "Login",
                 path: "/login",
@@ -18,7 +18,7 @@ angular
                 path: "/recover-user",
                 component: "recover",
             },
-            //Events
+            // Events
             {
                 name: "Events",
                 path: "/events",
