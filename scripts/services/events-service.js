@@ -8,8 +8,8 @@ angular
             return $http.get(Properties.serverUrl + Properties.endpointEvents);
         };
 
-        this.getEvent = (productId) => {
-            return $http.get(Properties.serverUrl + Properties.endpointEvents + "/" + productId);
+        this.getEvent = (eventId) => {
+            return $http.get(Properties.serverUrl + Properties.endpointEvents + "/" + eventId);
         };
 
         this.getImagePath = function (path) {

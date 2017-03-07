@@ -1,12 +1,10 @@
-<div class="event-detail">
+<div class="page-single-event">
     <div class="six columns">
-        <img ng-src="{{ $ctrl.getImagePath(eventData.photo_url) }}">
+        <img ng-src="{{ $ctrl.getImagePath($ctrl.eventData.photo_url) }}">
     </div>
-    <div class="product-details six columns">
-        <span class="product-price">{{ $ctrl.productData.price }}</span>
-        <a ng-link="['Product', { id: product.id }]" class="product-title">{{ $ctrl.productData.name }}</a>
-        <p class="product-description" ng-bind-html="$ctrl.productDescription"></p>
-        <p class="product-category">{{ $ctrl.productData.category.name }}</p>
-
+    <div class="event-details six columns">
+        <a ng-link="['Event', { id: event.id }]" class="event-title">{{ $ctrl.eventData.name }}</a>
+        <p class="event-description">{{ $ctrl.eventData.description }}</p>
+        <!--p class="event-category">{{ $ctrl.eventData.category.name }}</p-->
     </div>
 </div>
