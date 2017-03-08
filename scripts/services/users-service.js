@@ -7,21 +7,21 @@ angular
         this.saveUser = function (user) {
             return $http.post(Properties.serverUrl +
                 Properties.endpointUsers +
-                '/register' +
+                '/register' ,
                 user);
         };
 
-        this.loginUser = function (user) {
+        this.loginUser = function (login) {
             return $http.post(Properties.serverUrl +
                 Properties.endpointUsers +
-                '/login' +
-                user);
+                '/login' ,
+                login);
         };
 
         this.recoverUser = function (user) {
             return $http.post(Properties.serverUrl +
                 Properties.endpointUsers +
-                '/recover' +
+                '/recover' ,
                 user);
         };
 

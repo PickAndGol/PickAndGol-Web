@@ -16,10 +16,10 @@ angular.module("pickandgol").component("newLogin",{
         var favoriteUser;
         var self = this;
 
-        self.userLogin = function(password,email) {
+        self.loginUser = function(password,email) {
             var login = {password:password,
                         email:email};
-            usersService.userLogin(login).then(function(response) {
+            usersService.loginUser(login).then(function(response) {
                 console.log(login);
                 loginData = response.data.data;
                 idUser = response.data.data.id;
