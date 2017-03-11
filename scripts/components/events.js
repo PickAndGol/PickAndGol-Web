@@ -6,7 +6,6 @@ var ctrl = function (eventsService) {
 
     eventsService.getEvents() // Returns a promise
         .then(function (response) {
-
             // Get data
             self.events = response.data.data.items;
             self.totalEvents = response.data.data.total;
