@@ -7,8 +7,9 @@ var ctrl = function (eventsService) {
     eventsService.getEvents() // Returns a promise
         .then(function (response) {
 
-            // In 'data' property it's its body
-            self.events = response.data.data;
+            // Get data
+            self.events = response.data.data.items;
+            self.totalEvents = response.data.data.total;
         });
 
     // Get image path
