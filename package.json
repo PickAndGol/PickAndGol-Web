@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lite-server": "lite-server",
-    "watch-stylus": "stylus -m -u rupture --watch stylus --out styles",
+    "watch-stylus": "stylus -m -c -u jeet -u rupture --watch stylus/styles.styl --out styles",
     "dev": "concurrently \"npm run watch-stylus\" \"npm run lite-server\""
   },
   "repository": {
@@ -22,16 +22,15 @@
     "@angular/router": "^0.2.0",
     "angular": "^1.6.1",
     "bootstrap": "^3.3.7",
-    "skeleton-css": "^2.0.4",
-    "angular-router": "0.0.2",
-    "@angular/router": "^0.2.0",
-    "bootstrap": "^3.3.7",
     "lite-server": "^2.2.2",
     "rupture": "^0.6.2",
+    "skeleton-css": "^2.0.4",
     "stylus": "^0.54.5"
   },
   "devDependencies": {
+    "concurrently": "^2.1.0",
+    "jeet": "^7.1.0",
     "lite-server": "^2.2.2",
-    "concurrently": "^2.1.0"
+    "stylus": "^0.54.5"
   }
 }
