@@ -1,5 +1,5 @@
 
-var ctrl = function (eventsService, usersService, $sce) {
+var ctrl = function (eventsService, usersService) {
     // Save component reference
     var self = this;
 
@@ -13,15 +13,22 @@ var ctrl = function (eventsService, usersService, $sce) {
                 // General data
                 self.eventData = response.data.data;
 
+                const token = sessionStorage.getItem('pickandgolToken');
+                if (token && self.eventData.creator){
+                    self.canGetUser = true;
+                    console.log(self.canGetUser);
 
-/*
-                // Description (comes as HTML)
-                self.eventDescription = $sce.trustAsHtml(
-                    response.data.description);
-                    */
+                    usersService.getUser(self.eventData.creator)
+                        .then((result)=>{
+                            self.creatorData = result.data.data;
+                    console.log(self.creatorData);
+                        });
+                }
             });
 
     };
+
+    ;
 /*
     // Future get favorite events
     self.$onInit = function () {
