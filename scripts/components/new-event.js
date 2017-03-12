@@ -8,14 +8,13 @@ angular.module("pickandgol").component("newEvent",{
     templateUrl: "views/event-register.html",
 
     controller: function(eventsService){
+        // get token by sessionStorage
+        var usertoken = sessionStorage.getItem('pickandgolToken');
 
-        //TODO:get user token of webStorage while use token the last sesion any user with potsman.
-        var usertoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4YzUzN2I0OTJiMzNkMDZhMTBjYTFlOSIsImlhdCI6MTQ4OTMyMDY5MCwiZXhwIjoxNDg5MzIyMTMwfQ.knyXIN-jOi8MfpSYH_avzC8GbRg8LabsVtMdt5vFeww";
         //TODO:get id pub in details of bar, the user. Details Bar pending develop
         var userpub = "58c53a9292b33d06a10ca1f4";
 
         var self = this;
-
 
         self.saveEvent = function(name,date,description,category,pub,token) {
             pub = userpub;
@@ -44,6 +43,7 @@ angular.module("pickandgol").component("newEvent",{
                     alert("ERROR: 404, debes de añadir un pub");
                 }else{
                     alert("Evento "+ event.name +" creado!! ");
+                    window.location.href= "/events";
                 }
 
             });

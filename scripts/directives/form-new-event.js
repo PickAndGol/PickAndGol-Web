@@ -12,13 +12,6 @@ angular.module("pickandgol").directive("formNewEvent", function () {
         },
         link: function(scope){
 
-            scope.event = {
-                name:"",
-                date:"",
-                description:"",
-                token:""
-            };
-
             scope.notifyEvent = function(){
                 scope.saveToClick({ name: scope.name,
                     date: scope.date,
