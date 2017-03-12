@@ -21,13 +21,13 @@ angular.module("pickandgol").component("newUser",{
                 console.log("data....",response.data);
                 console.log("response full", response);
 
-                if(response.data.data.code === 400){
+                if (response.data.data.code === 400){
                     console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
                     alert("Asegurate de completar todos los datos y que estos sean validos");
-                }else if (response.data.data.code === 409){
+                } else if (response.data.data.code === 409){
                     console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
                     alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
-                }else{
+                } else {
                     alert("Usuario "+ user.name +" registrado!! ");
                 }
 

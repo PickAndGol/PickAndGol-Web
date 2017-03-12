@@ -1,12 +1,13 @@
 <div class="events">
     <ul class="event-items">
-        <li ng-repeat="event in $ctrl.events" class="four columns">
+        <li ng-repeat="event in $ctrl.events" class="">
             <div class="event-item-container">
                 <img ng-src="{{ $ctrl.getImagePath(event.photo_url) }}">
                 <div class="event-detail">
                     <div class="vertical-centered">
-                        <h3>{{ event.name }}</h3>
-                        <p class="separator orange">{{ event.description }}</p>
+                        <!--a href="#" class="event-title">{{ event.name }}</a-->
+                        <a ng-link="['Event', { id: event._id }]" class="event-title">{{ event.name }}</a>
+                        <p class="event-description">{{ event.description }}</p>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,9 @@ angular
             return $http.get(Properties.serverUrl + Properties.endpointEvents);
         };
 
+        this.getEvent = (eventId) => {
+            return $http.get(Properties.serverUrl + Properties.endpointEvents + "/" + eventId);
+        };
 
         this.getImagePath = function (path) {
             const defaultPath = '/static/events/default-match.jpg';
