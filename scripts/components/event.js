@@ -11,7 +11,8 @@ var ctrl = function (eventsService, usersService, $sce) {
         eventsService.getEvent(eventId)
             .then( function (response) {
                 // General data
-                self.eventData = response.data.data.event;
+                self.eventData = response.data.data;
+
 
 /*
                 // Description (comes as HTML)

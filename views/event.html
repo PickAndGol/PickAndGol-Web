@@ -1,8 +1,8 @@
 <div class="page-single-event">
-    <div class="six columns">
+    <div class="single-event-img-container">
         <img ng-src="{{ $ctrl.getImagePath($ctrl.eventData.photo_url) }}">
     </div>
-    <div class="event-details six columns">
+    <div class="event-details">
         <a ng-link="['Event', { id: event.id }]" class="event-title">{{ $ctrl.eventData.name }}</a>
         <p class="event-description">{{ $ctrl.eventData.description }}</p>
         <!--p class="event-category">{{ $ctrl.eventData.category.name }}</p-->
