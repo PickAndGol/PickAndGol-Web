@@ -13,7 +13,6 @@ angular.module("pickandgol").component("newEvent",{
         var usertoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4YzUzN2I0OTJiMzNkMDZhMTBjYTFlOSIsImlhdCI6MTQ4OTMyMDY5MCwiZXhwIjoxNDg5MzIyMTMwfQ.knyXIN-jOi8MfpSYH_avzC8GbRg8LabsVtMdt5vFeww";
         //TODO:get id pub in details of bar, the user. Details Bar pending develop
         var userpub = "58c53a9292b33d06a10ca1f4";
-        //var userpub = "paquito";
 
         var self = this;
 
