@@ -1,7 +1,7 @@
 <div class="simple-user">
-    <div ng-if="$ctrl.userdata.photo_url" class="user-avatar-container">
+    <div class="user-avatar-container">
         <div class="user-avatar"
-                style="background-image: url('{{ $ctrl.userdata.photo_url }}')"></div-->
+                style="background-image: url('{{ $ctrl.getImagePath($ctrl.userdata.photo_url) }}')"></div-->
     </div>
     <div class="user-nick-container">
         Creado por <span class="user-nick">{{ $ctrl.userdata.name }}</span>

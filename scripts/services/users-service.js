@@ -36,5 +36,10 @@ angular
             //return;
         };
 
+        this.getImagePath = function (path) {
+            const defaultPath = '/static/users/default-user.png';
+
+            return path || defaultPath;
+        };
 
     });
