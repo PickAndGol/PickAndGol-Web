@@ -16,12 +16,10 @@ var ctrl = function (eventsService, usersService) {
                 const token = sessionStorage.getItem('pickandgolToken');
                 if (token && self.eventData.creator){
                     self.canGetUser = true;
-                    console.log(self.canGetUser);
 
                     usersService.getUser(self.eventData.creator)
                         .then((result)=>{
                             self.creatorData = result.data.data;
-                    console.log(self.creatorData);
                         });
                 }
             });
