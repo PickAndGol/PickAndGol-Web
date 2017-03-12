@@ -1,5 +1,5 @@
 
-var ctrl = function (eventsService) {
+var ctrl = function (eventsService, usersService) {
     // this references context, this context is the one we need,
     // so we save it on self var
     var self = this;
@@ -16,7 +16,7 @@ var ctrl = function (eventsService) {
 
 };
 
-ctrl.$inject = ["eventsService"];
+ctrl.$inject = ["eventsService", "usersService"];
 
 angular
     .module("pickandgol")

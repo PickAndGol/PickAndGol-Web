@@ -12,7 +12,7 @@ angular
     .component("simpleUser", {
         bindings: {
             $router: "<",
-            userbasicdata: "<"
+            userdata: "<"
         },
         templateUrl: "views/simple-user.html",
         controller: ctrl
