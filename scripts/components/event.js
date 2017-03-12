@@ -1,5 +1,5 @@
 
-var ctrl = function (eventsService, usersService, $sce) {
+var ctrl = function (eventsService, usersService) {
     // Save component reference
     var self = this;
 
@@ -13,13 +13,10 @@ var ctrl = function (eventsService, usersService, $sce) {
                 // General data
                 self.eventData = response.data.data;
 
-
-/*
-                // Description (comes as HTML)
-                self.eventDescription = $sce.trustAsHtml(
-                    response.data.description);
-                    */
             });
+
+        // Get image  path
+        self.getImagePath = eventsService.getImagePath;
 
     };
 /*
