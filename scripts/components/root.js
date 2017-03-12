@@ -29,6 +29,11 @@ angular
                 name: "Event",
                 path: "/events/:id",
                 component: "event"
+            },
+            {
+                name: "NewEvent",
+                path: "/new-event",
+                component: "newEvent"
             }
         ],
         templateUrl: "views/root.html"

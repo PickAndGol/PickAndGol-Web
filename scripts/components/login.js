@@ -29,7 +29,7 @@ angular.module("pickandgol").component("newLogin",{
                 //console.log("data....",response.data);
                 //console.log("loginData....",loginData);
                 //console.log("idUser....",idUser);
-                //console.log("token....",tokenUser);
+                console.log("token....",tokenUser);
                 //console.log("name....",nameUser);
                 //console.log("favoritos....",favoriteUser);
                 //console.log("response full", response);
@@ -48,6 +48,7 @@ angular.module("pickandgol").component("newLogin",{
                     alert("ERROR: Usuario no encontrado, asegurate de introducir los datos correctos o registrate");
                 }
                 else{
+
                     alert("Usuario "+ response.data.data.name +" Logueado!! ");
                 }
 
