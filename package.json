@@ -21,13 +21,12 @@
   "dependencies": {
     "@angular/router": "^0.2.0",
     "angular": "^1.6.1",
-    "bootstrap": "^3.3.7",
-    "skeleton-css": "^2.0.4",
     "angular-router": "0.0.2",
-    "@angular/router": "^0.2.0",
+    "angular-utils-pagination": "^0.11.1",
     "bootstrap": "^3.3.7",
     "lite-server": "^2.2.2",
     "rupture": "^0.6.2",
+    "skeleton-css": "^2.0.4",
     "stylus": "^0.54.5"
   },
   "devDependencies": {
