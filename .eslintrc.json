@@ -9,7 +9,8 @@
     },
     "globals": {
         "ko": false,
-        "angular": true
+        "angular": true,
+        "_": true
     },
     "rules": {
         "no-console":0,

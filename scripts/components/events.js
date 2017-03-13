@@ -1,5 +1,6 @@
 
-var ctrl = function (eventsService, angularDirPagination) {
+
+var ctrl = function (eventsService, usersService, angularDirPagination) {
     // this references context, this context is the one we need,
     // so we save it on self var
     var self = this;
@@ -11,9 +12,9 @@ var ctrl = function (eventsService, angularDirPagination) {
 
     eventsService.getEvents() // Returns a promise
         .then(function (response) {
-
-            // In 'data' property it's its body
-            self.events = response.data.data;
+            // Get data
+            self.events = response.data.data.items;
+            self.totalEvents = response.data.data.total;
         });
 
     // Get image path
@@ -21,7 +22,7 @@ var ctrl = function (eventsService, angularDirPagination) {
 
 };
 
-ctrl.$inject = ["eventsService", "angularUtils.directives.dirPagination"];
+ctrl.$inject = ["eventsService", "usersService", "angularUtils.directives.dirPagination"];
 
 angular
     .module("pickandgol")

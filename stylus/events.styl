@@ -1,23 +1,32 @@
 
 .event-items
   list-style none
-  //width 100%
 
   li
     background-color #FFF
     display inline-block
 
+    +at('tablet')
+      column(1/2, $cycle: 2)
+
+    +at('desktop')
+      column(1/3, $cycle: 3)
+
     +above('wdesktop')
-      width (100% / 4)
+      column(1/4, $cycle: 4)
 
     .event-item-container
-      margin 15px
+
+      padding 10px
 
       img
-        max-width:100%;
-        max-height:100%;
+        max-width 100%
+        max-height 100%
 
-      .event-detail 
+      p
+        margin 0
+
+      .event-detail
         .event-title
           display block
           color #6a6a6a
@@ -25,11 +34,36 @@
 
           &:hover
             text-decoration underline
-        
+
         .event-description
           display: block;
           color: #b5b5b5;
           text-decoration: none;
 
 
+.page-single-event
+
+  .single-event-img-container
+
+    img
+      max-width 100%
+      max-height 100%
+
+    +above('tablet')
+      column(1/2, $cycle: 2)
+      margin-right 0 !important
+
+  .event-details
+    background-color #FFF
+    padding 15px
+
+    +above('tablet')
+      column(1/2, $cycle: 2)
+
+    .event-title
+      font-size 2.3em
+      color #6a6a6a
+
+    .event-description
+      color #a5a5a5
 

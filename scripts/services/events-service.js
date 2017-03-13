@@ -18,6 +18,12 @@ angular
             return path || defaultPath;
         };
 
+        this.saveEvent = function (event) {
+            return $http.post(Properties.serverUrl +
+                Properties.endpointEvents,
+                event);
+        };
+
 
 
         // Save product example:

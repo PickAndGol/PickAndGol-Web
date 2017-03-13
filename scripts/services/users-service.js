@@ -7,22 +7,39 @@ angular
         this.saveUser = function (user) {
             return $http.post(Properties.serverUrl +
                 Properties.endpointUsers +
-                '/register' +
+                '/register' ,
                 user);
         };
 
-        this.loginUser = function (user) {
+        this.loginUser = function (login) {
             return $http.post(Properties.serverUrl +
                 Properties.endpointUsers +
-                '/login' +
-                user);
+                '/login' ,
+                login);
         };
 
         this.recoverUser = function (user) {
             return $http.post(Properties.serverUrl +
                 Properties.endpointUsers +
-                '/recover' +
+                '/recover' ,
                 user);
+        };
+
+        this.getUser = (userId) => {
+            const token = sessionStorage.getItem('pickandgolToken');
+            //if (token) {
+            return $http.get(Properties.serverUrl +
+                    Properties.endpointUsers +
+                    "/" + userId
+                    + "?token="+ token);
+            //}
+            //return;
+        };
+
+        this.getImagePath = function (path) {
+            const defaultPath = '/static/users/default-user.png';
+
+            return path || defaultPath;
         };
 
     });
