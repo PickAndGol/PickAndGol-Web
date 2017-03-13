@@ -4,7 +4,7 @@ angular
     .service("eventsService", function ($http, Properties) {
         // All functionality that you want to export has to be published here
 
-        this.getEvents = function () {
+        this.getEvents = function (filters) {
             return $http.get(Properties.serverUrl + Properties.endpointEvents);
         };
 
