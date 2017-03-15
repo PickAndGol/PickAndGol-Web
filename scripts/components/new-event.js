@@ -30,19 +30,22 @@ angular.module("pickandgol").component("newEvent",{
                 console.log(event);
                 console.log("data....",response.data);
                 console.log("response full", response);
+                errorDescription = response.data.data.description;
+                codeError =  response.data.data.code;
+                nameEvent = event.name;
 
 
-                if(response.data.data.code === 400){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
+                if(codeError=== 400){
+                    console.log("Error: "+ codeError + " " + errorDescription);
                     alert("Error 400");
-                }else if (response.data.data.code === 409){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
+                }else if (codeError=== 409){
+                    console.log("Error: "+ codeError + " " + errorDescription);
                     alert("ERROR: 409");
-                }else if (response.data.data.code === 404){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
+                }else if (codeError === 404){
+                    console.log("Error: "+ codeError+ " " + errorDescription);
                     alert("ERROR: 404, debes de añadir un pub");
                 }else{
-                    alert("Evento "+ event.name +" creado!! ");
+                    alert("Evento "+ nameEvent +" creado!! ");
                     window.location.href= "/events";
                 }
 

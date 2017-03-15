@@ -21,11 +21,16 @@ angular.module("pickandgol").component("newLogin",{
                         email:email};
             usersService.loginUser(login).then(function(response) {
                 console.log(login);
-                loginData = response.data.data;
-                idUser = response.data.data.id;
+
+                loginData = response.data.code;
+                idUser = response.data.id;
                 nameUser = response.data.data.name;
                 tokenUser = response.data.data.token;
                 favoriteUser= response.data.data.favorite_pubs;
+                errorDescription = response.data.data.description;
+                codeError =  response.data.data.code;
+                name = response.data.data.name;
+
                 //console.log("data....",response.data);
                 //console.log("loginData....",loginData);
                 //console.log("idUser....",idUser);
@@ -34,17 +39,17 @@ angular.module("pickandgol").component("newLogin",{
                 //console.log("favoritos....",favoriteUser);
                 //console.log("response full", response);
 
-                if(response.data.data.code === 400){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
+                if(codeError === 400){
+                    console.log("Error: "+ codeError + " " + errorDescription);
                     alert("Asegurate de completar todos los datos y que estos sean validos");
-                }else if (response.data.data.code === 409){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
+                }else if (codeError === 409){
+                    console.log("Error: "+ codeError+ " " + errorDescription);
                     alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
-                }else if (response.data.data.code === 401){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
+                }else if (codeError === 401){
+                    console.log("Error: "+ codeError + " " + errorDescription);
                     alert("ERROR: Los datos no son correctos, comprueba que la contraseña o tu email son correctos.");
-                }else if (response.data.data.code === 404){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
+                }else if (codeError === 404){
+                    console.log("Error: "+ codeError + " " + errorDescription);
                     alert("ERROR: Usuario no encontrado, asegurate de introducir los datos correctos o registrate");
                 }
                 else{
@@ -52,7 +57,7 @@ angular.module("pickandgol").component("newLogin",{
                     if(typeof(Storage)!== "undefined"){
                         sessionStorage.setItem("pickandgolToken", tokenUser);
                     }
-                    alert("Usuario "+ response.data.data.name +" Logueado!! ");
+                    alert("Usuario "+ name +" Logueado!! ");
                 }
 
             });
