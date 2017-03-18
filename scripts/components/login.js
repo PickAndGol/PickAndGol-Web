@@ -13,15 +13,17 @@ angular.module("pickandgol").component("newLogin",{
         var idUser;
         var nameUser;
         var tokenUser;
-        var favoriteUser;
+        var favoritePubs;
         var self = this;
 
         self.loginUser = function(password,email) {
-            var login = {password:password,
-                        email:email};
+            var login = {
+                password:password,
+                email:email
+            };
             usersService.loginUser(login).then(function(response) {
                 console.log(login);
-
+                
                 loginData = response.data.code;
                 idUser = response.data.id;
                 nameUser = response.data.data.name;
@@ -30,35 +32,43 @@ angular.module("pickandgol").component("newLogin",{
                 errorDescription = response.data.data.description;
                 codeError =  response.data.data.code;
                 name = response.data.data.name;
+                responseError = response.data.result;
 
-                //console.log("data....",response.data);
-                //console.log("loginData....",loginData);
-                //console.log("idUser....",idUser);
-                //console.log("token....",tokenUser);
-                //console.log("name....",nameUser);
-                //console.log("favoritos....",favoriteUser);
-                //console.log("response full", response);
+                if (responseError === "ERROR"){
+                    switch (codeError) {
+                    case 400:
+                        console.log("Error: "+ codeError + " " + errorDescription);
+                        alert("Asegurate de completar todos los datos y que estos sean validos");
+                        break;
 
-                if(codeError === 400){
-                    console.log("Error: "+ codeError + " " + errorDescription);
-                    alert("Asegurate de completar todos los datos y que estos sean validos");
-                }else if (codeError === 409){
-                    console.log("Error: "+ codeError+ " " + errorDescription);
-                    alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
-                }else if (codeError === 401){
-                    console.log("Error: "+ codeError + " " + errorDescription);
-                    alert("ERROR: Los datos no son correctos, comprueba que la contraseña o tu email son correctos.");
-                }else if (codeError === 404){
-                    console.log("Error: "+ codeError + " " + errorDescription);
-                    alert("ERROR: Usuario no encontrado, asegurate de introducir los datos correctos o registrate");
-                }
-                else{
-                    window.location.href= "/events";
-                    if(typeof(Storage)!== "undefined"){
-                        sessionStorage.setItem("pickandgolToken", tokenUser);
+                    case 409:
+                        console.log("Error: "+ codeError + " " + errorDescription);
+                        alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
+                        break;
+
+                    case 401:
+                        console.log("Error: "+ codeError + " " + errorDescription);
+                        alert("Asegurate de completar todos los datos y que estos sean validos");
+                        break;
+
+                    case 404:
+                        console.log("Error: "+ codeError + " " + errorDescription);
+                        alert("ERROR: Usuario no encontrado, asegurate de introducir los datos correctos o registrate");
+                        break;
+
+                    default:
+                        alert("Error desconocido");
+                        break;
                     }
-                    alert("Usuario "+ name +" Logueado!! ");
+
+                    return;
                 }
+
+                window.location.href= "/events";
+                if (typeof(Storage) !== "undefined"){
+                    sessionStorage.setItem("pickandgolToken", tokenUser);
+                }
+                alert("Usuario "+ response.data.data.name +" Logueado!! ");
 
             });
         };

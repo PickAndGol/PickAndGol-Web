@@ -41,4 +41,29 @@
           text-decoration: none;
 
 
+.page-single-event
+
+  .single-event-img-container
+
+    img
+      max-width 100%
+      max-height 100%
+
+    +above('tablet')
+      column(1/2, $cycle: 2)
+      margin-right 0 !important
+
+  .event-details
+    background-color #FFF
+    padding 15px
+
+    +above('tablet')
+      column(1/2, $cycle: 2)
+
+    .event-title
+      font-size 2.3em
+      color #6a6a6a
+
+    .event-description
+      color #a5a5a5
 

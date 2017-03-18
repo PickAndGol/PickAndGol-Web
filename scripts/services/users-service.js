@@ -25,4 +25,21 @@ angular
                 user);
         };
 
+        this.getUser = (userId) => {
+            const token = sessionStorage.getItem('pickandgolToken');
+            //if (token) {
+            return $http.get(Properties.serverUrl +
+                    Properties.endpointUsers +
+                    "/" + userId
+                    + "?token="+ token);
+            //}
+            //return;
+        };
+
+        this.getImagePath = function (path) {
+            const defaultPath = '/static/users/default-user.png';
+
+            return path || defaultPath;
+        };
+
     });
