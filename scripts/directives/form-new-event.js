@@ -15,8 +15,10 @@ angular.module("pickandgol").directive("formNewEvent", function () {
             scope.notifyEvent = function(){
                 scope.saveToClick({ name: scope.name,
                     date: scope.date,
+                    category: scope.category,
                     description: scope.description});
             };
+
         }
     };
 });

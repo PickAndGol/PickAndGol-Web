@@ -7,7 +7,7 @@ angular.module("pickandgol").component("newEvent",{
     },
     templateUrl: "views/event-register.html",
 
-    controller: function(eventsService){
+    controller: function(eventsService,categoriesService){
         // get token by sessionStorage
         var usertoken = sessionStorage.getItem('pickandgolToken');
 
@@ -16,9 +16,21 @@ angular.module("pickandgol").component("newEvent",{
 
         var self = this;
 
+       /* categoriesService.getCategories().then(function(response){
+            //get categories
+            //self.categories = response.data.data.items.name;
+            var items = response.data.data;
+
+            self.categories = response.data.data.items;
+            console.log(response);
+            console.log(items);
+            console.log(self.categories);
+        });*/
+
         self.saveEvent = function(name,date,description,category,pub,token) {
             pub = userpub;
             token = usertoken;
+            //date = datee;
 
             var event = {   name: name,
                 date:date,
@@ -34,7 +46,6 @@ angular.module("pickandgol").component("newEvent",{
                 codeError =  response.data.data.code;
                 nameEvent = event.name;
 
-
                 if(codeError=== 400){
                     console.log("Error: "+ codeError + " " + errorDescription);
                     alert("Error 400");
@@ -46,10 +57,11 @@ angular.module("pickandgol").component("newEvent",{
                     alert("ERROR: 404, debes de añadir un pub");
                 }else{
                     alert("Evento "+ nameEvent +" creado!! ");
-                    window.location.href= "/events";
+                    //window.location.href= "/events";
                 }
-
             });
         };
     }
 });
+
+

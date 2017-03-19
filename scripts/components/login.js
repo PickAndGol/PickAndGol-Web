@@ -23,7 +23,7 @@ angular.module("pickandgol").component("newLogin",{
             };
             usersService.loginUser(login).then(function(response) {
                 console.log(login);
-                
+
                 loginData = response.data.code;
                 idUser = response.data.id;
                 nameUser = response.data.data.name;

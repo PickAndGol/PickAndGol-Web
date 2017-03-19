@@ -9,6 +9,8 @@ var ctrl = function (eventsService, usersService) {
             // Get data
             self.events = response.data.data.items;
             self.totalEvents = response.data.data.total;
+
+            console.log(response,'response');
         });
 
     // Get image path
