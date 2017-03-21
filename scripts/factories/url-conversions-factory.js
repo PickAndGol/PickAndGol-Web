@@ -1,7 +1,7 @@
 
 angular
     .module("pickandgol")
-    .factory("urlConversionsFactory", function () {
+    .factory("UrlConversionsFactory", function () {
         return {
             objectToUrlParams: function (obj) {
                 return "?" + Object.keys(obj)

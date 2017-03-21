@@ -1,7 +1,7 @@
 
 angular
     .module("pickandgol")
-    .service("eventsService", function ($http, Properties, urlConversionsFactory) {
+    .service("eventsService", function ($http, Properties, UrlConversionsFactory) {
         // All functionality that you want to export has to be published here
 
         this.getEvents = function (filters) {
@@ -9,7 +9,7 @@ angular
                 + Properties.endpointEvents;
 
             if (filters && Object.keys(filters).length > 0){
-                url += urlConversionsFactory.objectToUrlParams(filters);
+                url += UrlConversionsFactory.objectToUrlParams(filters);
             }
 
             return $http.get(url);

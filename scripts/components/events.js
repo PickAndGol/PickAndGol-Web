@@ -1,6 +1,6 @@
 
 
-var ctrl = function (eventsService, usersService) {
+var ctrl = function (eventsService, EventDefaults) {
     // this references context, this context is the one we need,
     // so we save it on self var
     var self = this;
@@ -8,7 +8,7 @@ var ctrl = function (eventsService, usersService) {
     self.events = []; // declare an empty array
     self.pageNumber = 1; // initialize page no to 1
     self.totalEvents = 0;
-    self.itemsPerPage = 12; //this could be a dynamic value from a drop down
+    self.itemsPerPage = EventDefaults.eventsPerPage; //this could be a dynamic value from a drop down
 
     self.getEvents = (pageNumber) => {
         const start = (pageNumber -1) * self.itemsPerPage;
