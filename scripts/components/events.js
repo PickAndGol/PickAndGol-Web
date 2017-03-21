@@ -33,7 +33,10 @@ var ctrl = function (eventsService, usersService) {
 
 };
 
-ctrl.$inject = ["eventsService", "usersService"];
+ctrl.$inject = [
+    "eventsService",
+    "usersService"
+];
 
 angular
     .module("pickandgol")
