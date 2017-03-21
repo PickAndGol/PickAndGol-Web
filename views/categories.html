@@ -1,0 +1,8 @@
+<div>
+    <label>Selecciona categoria</label>
+    <select id="event-category" required>
+        <option id= "select-categories" name="categories" ng-repeat="category in $ctrl.categories" value ="{{ category._id }} ">
+            {{ category.name }}
+        </option>
+    </select>
+</div>

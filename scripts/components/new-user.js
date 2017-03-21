@@ -20,15 +20,18 @@ angular.module("pickandgol").component("newUser",{
                 // $scope.user.push(response.data);
                 console.log("data....",response.data);
                 console.log("response full", response);
+                errorDescription = response.data.data.description;
+                codeError =  response.data.data.code;
+                userName = user.name;
 
-                if (response.data.data.code === 400){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
+                if (codeError === 400){
+                    console.log("Error: "+ codeError + " " + errorDescription);
                     alert("Asegurate de completar todos los datos y que estos sean validos");
-                } else if (response.data.data.code === 409){
-                    console.log("Error: "+ response.data.data.code + " " + response.data.data.description);
+                } else if (codeError === 409){
+                    console.log("Error: "+ codeError + " " + errorDescription);
                     alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
                 } else {
-                    alert("Usuario "+ user.name +" registrado!! ");
+                    alert("Usuario "+ userName +" registrado!! ");
                 }
 
             });
