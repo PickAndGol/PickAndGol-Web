@@ -11,7 +11,7 @@ var ctrl = function (eventsService, usersService) {
     self.itemsPerPage = 12; //this could be a dynamic value from a drop down
 
     self.getEvents = (pageNumber) => {
-        const start = (pageNumber -1) * self.itemsPerPage +1;
+        const start = (pageNumber -1) * self.itemsPerPage;
         const limit = self.itemsPerPage;
 
         let eventsFilters = {
