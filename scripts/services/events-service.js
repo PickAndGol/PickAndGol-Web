@@ -1,11 +1,18 @@
 
 angular
     .module("pickandgol")
-    .service("eventsService", function ($http, Properties) {
+    .service("eventsService", function ($http, Properties, urlConversionsFactory) {
         // All functionality that you want to export has to be published here
 
         this.getEvents = function (filters) {
-            return $http.get(Properties.serverUrl + Properties.endpointEvents);
+            let url = Properties.serverUrl
+                + Properties.endpointEvents;
+
+            if (filters && Object.keys(filters).length > 0){
+                url += urlConversionsFactory.objectToUrlParams(filters);
+            }
+
+            return $http.get(url);
         };
 
         this.getEvent = (eventId) => {
