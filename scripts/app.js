@@ -3,8 +3,9 @@
 angular.module(
     "pickandgol",
     [
-        "ngComponentRouter"//,
-        //"dahr.ng-haversine"
+        "ngComponentRouter",
+        "angularUtils.directives.dirPagination"
+        //"dahr.ng-haversine",
     ]);
 
 // Configure provider $locationProvider.

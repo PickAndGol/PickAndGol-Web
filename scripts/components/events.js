@@ -1,6 +1,6 @@
 
 
-var ctrl = function (eventsService, usersService, angularDirPagination) {
+var ctrl = function (eventsService, usersService) {
     // this references context, this context is the one we need,
     // so we save it on self var
     var self = this;
@@ -33,7 +33,7 @@ var ctrl = function (eventsService, usersService, angularDirPagination) {
 
 };
 
-ctrl.$inject = ["eventsService", "usersService", "angularUtils.directives.dirPagination"];
+ctrl.$inject = ["eventsService", "usersService"];
 
 angular
     .module("pickandgol")
