@@ -1,6 +1,7 @@
 <div class="events">
+    <input type="text" name="eventName" ng-model="$ctrl.eventsFilters.name" >
     <ul class="event-items">
-        <li dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.itemsPerPage" total-items="$ctrl.totalEvents">
+        <li dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.eventsPerPage" total-items="$ctrl.totalEvents">
             <div class="event-item-container">
                 <img ng-src="{{ $ctrl.getImagePath(event.photo_url) }}">
                 <div class="event-detail">
@@ -12,7 +13,7 @@
     </ul>
     <dir-pagination-controls
         class="events-pagination"
-        max-size="EventDefaults.eventsPerPage"
+        max-size="itemsPerPage"
         direction-links="true"
         boundary-links="true"
         on-page-change="$ctrl.getEvents(newPageNumber)" >

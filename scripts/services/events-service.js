@@ -8,7 +8,9 @@ angular
             let url = Properties.serverUrl
                 + Properties.endpointEvents;
 
+            // Check for filters to apply
             if (filters && Object.keys(filters).length > 0){
+                // Add filters as url parameters
                 url += UrlConversionsFactory.objectToUrlParams(filters);
             }
 

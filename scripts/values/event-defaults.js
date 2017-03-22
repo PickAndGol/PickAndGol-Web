@@ -1,6 +1,6 @@
 
 angular
     .module("pickandgol")
-    .value("EventDefaults", {
-        eventsPerPage: 12,
+    .constant("EventDefaults", {
+        eventsPerPage: 4,
     });
