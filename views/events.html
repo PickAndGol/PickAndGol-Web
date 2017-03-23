@@ -1,20 +1,22 @@
 <div class="events">
     <input type="text"
-        name="eventName"
-        ng-model="$ctrl.eventsFilters.name"
+        text="eventText"
+        ng-model="$ctrl.eventsFilters.text"
         ng-change="$ctrl.getEvents()"
         ng-model-options="{debounce: 1000}"/>
-    <ul class="event-items">
-        <li dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.eventsPerPage" total-items="$ctrl.totalEvents">
+    <div class="event-items">
+        <article class="event-item" dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.eventsPerPage" total-items="$ctrl.totalEvents">
             <div class="event-item-container">
                 <img ng-src="{{ $ctrl.getImagePath(event.photo_url) }}">
                 <div class="event-detail">
-                    <a ng-link="['Event', { id: event._id }]" class="event-title">{{ event.name }}</a>
+                    <a ng-link="['Event', { id: event._id }]" class="event-title">
+                        <h1>{{ event.name }}</h1>
+                    </a>
                     <p class="event-description">{{ event.description }}</p>
                 </div>
             </div>
-        </li>
-    </ul>
+        </article>
+    </div>
     <dir-pagination-controls
         class="events-pagination"
         max-size="itemsPerPage"
