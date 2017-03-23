@@ -1,5 +1,9 @@
 <div class="events">
-    <input type="text" name="eventName" ng-model="$ctrl.eventsFilters.name" >
+    <input type="text"
+        name="eventName"
+        ng-model="$ctrl.eventsFilters.name"
+        ng-keypress="$ctr.getEvents()"
+        ng-model-options="{debounce: 1000}"/>
     <ul class="event-items">
         <li dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.eventsPerPage" total-items="$ctrl.totalEvents">
             <div class="event-item-container">
@@ -16,6 +20,6 @@
         max-size="itemsPerPage"
         direction-links="true"
         boundary-links="true"
-        on-page-change="$ctrl.getEvents(newPageNumber)" >
+        on-page-change="$ctrl.getEventsInPage(newPageNumber)" >
     </dir-pagination-controls>
 </div>
