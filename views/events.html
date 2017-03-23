@@ -2,7 +2,7 @@
     <input type="text"
         name="eventName"
         ng-model="$ctrl.eventsFilters.name"
-        ng-keypress="$ctr.getEvents()"
+        ng-keypress="$ctrl.getEvents()"
         ng-model-options="{debounce: 1000}"/>
     <ul class="event-items">
         <li dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.eventsPerPage" total-items="$ctrl.totalEvents">
