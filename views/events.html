@@ -1,18 +1,31 @@
 <div class="events">
-    <input type="text"
-        text="eventText"
-        ng-model="$ctrl.eventsFilters.text"
-        ng-change="$ctrl.getEvents()"
-        ng-model-options="{debounce: 1000}"/>
+    <div class="events-filters">
+        <input type="search"
+            name="event-text"
+            id="event-text"
+            ng-model="$ctrl.eventsFilters.text"
+            ng-change="$ctrl.getEvents()"
+            ng-model-options="{debounce: 1000}"/>
+
+        <select name="event-category"
+            id="event-category"
+            ng-model="$ctrl.eventsFilters.text"
+            ng-change="$ctrl.getEvents()">
+            <option ng-repeat="category in $ctrl.categories"
+                value="{{ ::category._id }}">
+                {{ ::category.name }}
+            </option>
+        </select>
+    </div>
     <div class="event-items">
         <article class="event-item" dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.eventsPerPage" total-items="$ctrl.totalEvents">
             <div class="event-item-container">
-                <img ng-src="{{ $ctrl.getImagePath(event.photo_url) }}">
+                <img ng-src="{{ ::$ctrl.getImagePath(event.photo_url) }}">
                 <div class="event-detail">
                     <a ng-link="['Event', { id: event._id }]" class="event-title">
-                        <h1>{{ event.name }}</h1>
+                        <h1>{{ ::event.name }}</h1>
                     </a>
-                    <p class="event-description">{{ event.description }}</p>
+                    <p class="event-description">{{ ::event.description }}</p>
                 </div>
             </div>
         </article>

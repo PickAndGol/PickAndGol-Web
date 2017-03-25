@@ -1,12 +1,14 @@
 
 
-var ctrl = function (eventsService, EventDefaults) {
+var ctrl = function (eventsService, categoriesService, EventDefaults) {
     // this references context, this context is the one we need,
     // so we save it on self var
     var self = this;
 
     // initialize events filters
     self.eventsFilters = {};
+
+    self.categories = {};
 
     self.events = []; // declare an empty array
     self.pageNumber = 1; // initialize page no to 1
@@ -16,7 +18,7 @@ var ctrl = function (eventsService, EventDefaults) {
     // Get events. Assumes filters already actualized
     self.getEvents = () => {
         eventsService.getEvents(self.eventsFilters) // Returns a promise
-            .then(function (response) {
+            .then( (response) => {
                 // Get data
                 self.events = response.data.data.items;
                 self.totalEvents = response.data.data.total;
@@ -44,6 +46,12 @@ var ctrl = function (eventsService, EventDefaults) {
     // Initial call to get events
     self.getEvents(self.pageNumber);
 
+    // Initialize categories
+    categoriesService.getCategories()
+        .then((response) =>{
+            self.categories = response.data.data.items;
+        });
+
     // Get image path
     self.getImagePath = eventsService.getImagePath;
 
@@ -51,6 +59,7 @@ var ctrl = function (eventsService, EventDefaults) {
 
 ctrl.$inject = [
     "eventsService",
+    "categoriesService",
     "EventDefaults"
 ];
 
