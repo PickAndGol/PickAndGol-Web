@@ -2,13 +2,13 @@
     <div class="events-filters">
         <input type="search"
             name="event-text"
-            id="event-text"
+            id="event-text-filter"
             ng-model="$ctrl.eventsFilters.text"
             ng-change="$ctrl.getEventsInPage(1)"
             ng-model-options="{debounce: 1000}"/>
 
         <select name="event-category"
-            id="event-category"
+            id="event-category-filter"
             ng-model="$ctrl.eventsFilters.text"
             ng-change="$ctrl.getEventsInPage(1)">
             <option ng-repeat="category in $ctrl.categories"
@@ -18,7 +18,9 @@
         </select>
     </div>
     <div class="event-items">
-        <article class="event-item" dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.eventsPerPage" total-items="$ctrl.totalEvents">
+        <article class="event-item"
+            dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.eventsPerPage"
+            total-items="$ctrl.totalEvents">
             <div class="event-item-container">
                 <img ng-src="{{ ::$ctrl.getImagePath(event.photo_url) }}">
                 <div class="event-detail">

@@ -29,7 +29,6 @@ var ctrl = function (eventsService, usersService) {
 
     };
 
-    ;
 /*
     // Future get favorite events
     self.$onInit = function () {
