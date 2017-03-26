@@ -1,6 +1,12 @@
 @import 'jeet'
 @import('rupture-config')
 
+
+// Import generic styles
+
+@import('colors')
+@import('forms')
+
 body
   margin 0
   color #6a6a6a
@@ -8,14 +14,14 @@ body
   font-family "Muli",Helvetica,Arial,sans-serif;
 
   a
-    color #127887
+    color $main-color
 
 .container
   center(90%)
 
 header.main-header,
 footer.main-footer
-  background-color #127887
+  background-color $shadow1color
   padding-top 5px
   padding-bottom 5px
 
@@ -36,9 +42,6 @@ footer.main-footer
   h1
     font-size 1.5em
 
-// Import generic styles
-
-@import('forms')
 
 // Import each section styles
 
