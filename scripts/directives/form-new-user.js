@@ -10,11 +10,13 @@ angular.module("pickandgol").directive("formNewUser", function () {
         scope:{
             saveToClick: "&"
         },
-        link: function(scope){
+        link: function (scope){
             scope.notifyUser = function(){
-                scope.saveToClick({ name: scope.name,
-                                    password: scope.password,
-                                    email: scope.email});
+                scope.saveToClick({
+                    name: scope.name,
+                    password: scope.password,
+                    email: scope.email
+                });
             };
         }
     };

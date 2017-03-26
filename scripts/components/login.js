@@ -7,13 +7,8 @@ angular.module("pickandgol").component("newLogin",{
     },
     templateUrl: "views/login.html",
 
-    controller: function(usersService){
+    controller: function (usersService){
 
-        var loginData;
-        var idUser;
-        var nameUser;
-        var tokenUser;
-        var favoritePubs;
         var self = this;
 
         self.loginUser = function(password,email) {
@@ -24,35 +19,33 @@ angular.module("pickandgol").component("newLogin",{
             usersService.loginUser(login).then(function(response) {
                 console.log(login);
 
-                loginData = response.data.code;
-                idUser = response.data.id;
-                nameUser = response.data.data.name;
-                tokenUser = response.data.data.token;
-                favoriteUser= response.data.data.favorite_pubs;
-                errorDescription = response.data.data.description;
-                codeError =  response.data.data.code;
-                name = response.data.data.name;
-                responseError = response.data.result;
+                var loginData = response.data.code;
+                var idUser = response.data.id;
+                var nameUser = response.data.data.name;
+                var tokenUser = response.data.data.token;
+                var favoritePubs = response.data.data.favorite_pubs;
+                var errorDescription = response.data.data.description;
+                var codeError =  response.data.data.code;
+                var name = response.data.data.name;
+                var responseError = response.data.result;
 
                 if (responseError === "ERROR"){
+                    console.log("Error: "+ codeError + " " + errorDescription);
+
                     switch (codeError) {
                     case 400:
-                        console.log("Error: "+ codeError + " " + errorDescription);
                         alert("Asegurate de completar todos los datos y que estos sean validos");
                         break;
 
                     case 409:
-                        console.log("Error: "+ codeError + " " + errorDescription);
                         alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
                         break;
 
                     case 401:
-                        console.log("Error: "+ codeError + " " + errorDescription);
                         alert("Asegurate de completar todos los datos y que estos sean validos");
                         break;
 
                     case 404:
-                        console.log("Error: "+ codeError + " " + errorDescription);
                         alert("ERROR: Usuario no encontrado, asegurate de introducir los datos correctos o registrate");
                         break;
 
