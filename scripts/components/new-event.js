@@ -42,9 +42,9 @@ angular.module("pickandgol").component("newEvent",{
                 console.log(event);
                 console.log("data....",response.data);
                 console.log("response full", response);
-                errorDescription = response.data.data.description;
-                codeError =  response.data.data.code;
-                nameEvent = event.name;
+                var errorDescription = response.data.data.description;
+                var codeError =  response.data.data.code;
+                var nameEvent = event.name;
 
                 if(codeError=== 400){
                     console.log("Error: "+ codeError + " " + errorDescription);
