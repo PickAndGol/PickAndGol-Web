@@ -17,7 +17,7 @@ angular.module("pickandgol").component("newUser",{
                 password:password,
                 email:email
             };
-            usersService.saveUser(user).then(function(response) {
+            usersService.saveUser(user).then(function (response) {
                 //console.log(user);
                 // $scope.user.push(response.data);
                 //console.log("data....",response.data);
