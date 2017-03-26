@@ -1,11 +1,14 @@
 
 .event-items
-  list-style none
   clearfix()
 
-  li
+  .event-item
     background-color #FFF
     display inline-block
+
+    h1
+      font-size 1.15em
+      margin 0
 
     +at('tablet')
       column(1/2, $cycle: 2)

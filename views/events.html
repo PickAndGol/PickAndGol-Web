@@ -1,21 +1,42 @@
 <div class="events">
-    <input type="text" name="eventName" ng-model="$ctrl.eventsFilters.name" >
-    <ul class="event-items">
-        <li dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.eventsPerPage" total-items="$ctrl.totalEvents">
+    <div class="events-filters">
+        <input type="search"
+            name="event-text"
+            id="event-text-filter"
+            ng-model="$ctrl.eventsFilters.text"
+            ng-change="$ctrl.getEventsInPage(1)"
+            ng-model-options="{debounce: 1000}"/>
+
+        <select name="event-category"
+            id="event-category-filter"
+            ng-model="$ctrl.eventsFilters.text"
+            ng-change="$ctrl.getEventsInPage(1)">
+            <option ng-repeat="category in $ctrl.categories"
+                value="{{ ::category._id }}">
+                {{ ::category.name }}
+            </option>
+        </select>
+    </div>
+    <div class="event-items">
+        <article class="event-item"
+            dir-paginate="event in $ctrl.events|itemsPerPage:$ctrl.eventsPerPage"
+            total-items="$ctrl.totalEvents">
             <div class="event-item-container">
-                <img ng-src="{{ $ctrl.getImagePath(event.photo_url) }}">
+                <img ng-src="{{ ::$ctrl.getImagePath(event.photo_url) }}">
                 <div class="event-detail">
-                    <a ng-link="['Event', { id: event._id }]" class="event-title">{{ event.name }}</a>
-                    <p class="event-description">{{ event.description }}</p>
+                    <a ng-link="['Event', { id: event._id }]" class="event-title">
+                        <h1>{{ ::event.name }}</h1>
+                    </a>
+                    <p class="event-description">{{ ::event.description }}</p>
                 </div>
             </div>
-        </li>
-    </ul>
+        </article>
+    </div>
     <dir-pagination-controls
         class="events-pagination"
         max-size="itemsPerPage"
         direction-links="true"
         boundary-links="true"
-        on-page-change="$ctrl.getEvents(newPageNumber)" >
+        on-page-change="$ctrl.getEventsInPage(newPageNumber)" >
     </dir-pagination-controls>
 </div>
