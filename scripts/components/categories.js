@@ -22,8 +22,8 @@ var ctrl = function (categoriesService) {
             console.log(category);
             console.log("data Category....",response.data);
         });
-
-};
+    
+    };
 
 
     // Get image path

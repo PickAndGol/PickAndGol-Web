@@ -77,11 +77,6 @@ angular
             return promise;
         };
 
-        this.getImageAbsolutePath = function (relativePath) {
-            return (relativePath)
-                ? ("http://localhost:8000/" + relativePath)
-                : undefined;
-        };
     });
 */
 

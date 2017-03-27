@@ -1,0 +1,33 @@
+<div class="pubs">
+    <div class="pubs-filters">
+        <input type="search"
+            name="pub-name"
+            id="pub-name-filter"
+            ng-model="$ctrl.pubsFilters.name"
+            ng-change="$ctrl.getPubsInPage(1)"
+            ng-model-options="{debounce: 1000}"/>
+        </select>
+    </div>
+    <div class="pub-items">
+        <article class="pub-item"
+            dir-paginate="pub in $ctrl.pubs|itemsPerPage:$ctrl.pubsPerPage"
+            total-items="$ctrl.totalPubs">
+            <div class="pub-item-container">
+                <img ng-src="{{ ::$ctrl.getImagePath(pub.photo_url) }}">
+                <div class="pub-detail">
+                    <!--a ng-link="['Pub', { id: pub._id }]" class="pub-title"-->
+                        <h1>{{ ::pub.name }}</h1>
+                    <!--a-->
+                    <p class="pub-description">{{ ::pub.description }}</p>
+                </div>
+            </div>
+        </article>
+    </div>
+    <dir-pagination-controls
+        class="pubs-pagination"
+        max-size="itemsPerPage"
+        direction-links="true"
+        boundary-links="true"
+        on-page-change="$ctrl.getPubsInPage(newPageNumber)" >
+    </dir-pagination-controls>
+</div>
