@@ -1,0 +1,13 @@
+<div class="page-single-pub">
+    <div class="single-pub-img-container">
+        <img ng-src="{{ $ctrl.getImagePath($ctrl.pubData.photo_url) }}">
+    </div>
+    <div class="pub-details">
+        <a ng-link="['Pub', { id: pub.id }]" class="pub-title">{{ $ctrl.pubData.name }}</a>
+        <p class="pub-description">{{ $ctrl.pubData.description }}</p>
+        <!--p class="pub-category">{{ $ctrl.pubData.category.name }}</p-->
+        <div ng-if="$ctrl.canGetUser" class="user-view">
+            <simple-user userdata="$ctrl.creatorData"></simple-user>
+        </div>
+    </div>
+</div>

@@ -15,9 +15,9 @@
             <div class="pub-item-container">
                 <img ng-src="{{ ::$ctrl.getImagePath(pub.photo_url) }}">
                 <div class="pub-detail">
-                    <!--a ng-link="['Pub', { id: pub._id }]" class="pub-title"-->
+                    <a ng-link="['Pub', { id: pub._id }]" class="pub-title">
                         <h1>{{ ::pub.name }}</h1>
-                    <!--a-->
+                    <a>
                     <p class="pub-description">{{ ::pub.description }}</p>
                 </div>
             </div>

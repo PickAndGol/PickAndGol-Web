@@ -40,7 +40,12 @@ angular
                 name: "Pubs",
                 path: "/pubs",
                 component: "pubs"
-            }
+            },
+            {
+                name: "Pub",
+                path: "/pubs/:id",
+                component: "pub"
+            },
         ],
         templateUrl: "views/root.html"
     });
