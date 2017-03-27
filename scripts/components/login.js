@@ -57,7 +57,7 @@ angular.module("pickandgol").component("newLogin",{
                     return;
                 }
 
-                window.location.href= "/events";
+                self.$router.navigate(["/Events"]);
                 if (typeof(Storage) !== "undefined"){
                     sessionStorage.setItem("pickandgolToken", tokenUser);
                 }
