@@ -9,5 +9,8 @@
         <div ng-if="$ctrl.canGetUser" class="user-view">
             <simple-user userdata="$ctrl.creatorData"></simple-user>
         </div>
+        <elements-map
+            elements="[$ctrl.pubData]">
+        </elements-map>
     </div>
 </div>
