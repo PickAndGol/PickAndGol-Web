@@ -1,7 +1,7 @@
 
 angular
     .module("pickandgol")
-    .directive("elementsMap", function () {
+    .directive("elementsMap", function (uiGmapGoogleMapApi) {
         return {
             // With restrict we indicate how to use the directive
             // A as attribute of an HTML element
@@ -16,11 +16,14 @@ angular
             },
             // Establish directive logic or manipulate DOM in view
             link: function (scope) {
+                scope.markers = [];
+                uiGmapGoogleMapApi.then(function (maps) {
+                    console.log('mapReady');
+                    scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
 
-                console.log('scope',scope);
 
-
-
+                    console.log('scope',scope);
+                });
             }
         };
     });
