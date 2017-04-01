@@ -3,9 +3,11 @@
 <head>
     <!-- Indicate page from which Single Page Application is build -->
     <base href="/">
-
+    <meta name="description" content="Pick and Gol. Encuentra eventos en tu bar favorito">
+	<meta name="author" content="PickAndGolTeam">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>PickandGol</title>
+    <title>PickAndGol</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" type="text/css"
@@ -16,7 +18,10 @@
     <link rel="stylesheet" href="styles/styles.css"/>
 
     <!-- Libraries -->
-    <!--<script src="node_modules/lodash/index.js"></script>-->
+    <script src="node_modules/lodash/lodash.js"></script>
+    <!-- GoogleMaps API -->
+	<!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzFRbyBLw75vAAOslsRP5Z7ejnz0uUnSo" type="text/javascript"></script-->
+
 
     <!-- Angular js -->
     <script src="node_modules/angular/angular.min.js"></script>
@@ -24,6 +29,8 @@
 
     <!-- Angular plugins -->
     <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+    <script src="node_modules/angular-simple-logger/dist/index.light.js"></script>
+    <script src="node_modules/angular-google-maps/dist/angular-google-maps.min.js"></script>
 
     <!-- Module configuration script -->
     <script src="scripts/app.js"></script>
