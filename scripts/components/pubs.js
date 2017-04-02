@@ -33,7 +33,7 @@ var ctrl = function (pubsService, PubDefaults) {
         const start = (pageNumber -1) * self.pubsPerPage;
         const limit = self.pubsPerPage;
 
-        self.pubsFilters.start = start,
+        self.pubsFilters.offset = start,
         self.pubsFilters.limit = limit;
 
         // Call to get Pubs with actualized filters
@@ -47,8 +47,6 @@ var ctrl = function (pubsService, PubDefaults) {
 
     // Get image path
     self.getMainImagePath = pubsService.getMainImagePath;
-
-
 
 };
 
