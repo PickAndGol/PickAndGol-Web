@@ -30,32 +30,33 @@ angular
                         let pendingMarkers = elements.length;
 
                         _.each(elements, (element) => {
-                            let location = element.location.coordinates;
+                            if (element.location){
+                                let location = element.location.coordinates;
 
-                            let point = new google.maps.LatLng(
-                                location[0],
-                                location[1]);
-                            // Draw a marker for each random point
-                            new google.maps.Marker({
-                                position: point,
-                                map: map,
-                                title: element.name
-                            });
+                                let point = new google.maps.LatLng(
+                                    location[0],
+                                    location[1]);
+                                // Draw a marker for each random point
+                                new google.maps.Marker({
+                                    position: point,
+                                    map: map,
+                                    title: element.name
+                                });
 
-                            // Extend markerBounds with each random point.
-                            markerBounds.extend(point);
+                                // Extend markerBounds with each random point.
+                                markerBounds.extend(point);
 
-                            if (--pendingMarkers === 0){
-                                if (elements.length === 1){
-                                    map.setCenter(markerBounds.getCenter());
-                                    map.setZoom(16);
-                                } else {
-                                    map.fitBounds(markerBounds);
+                                if (--pendingMarkers === 0){
+                                    if (elements.length === 1){
+                                        map.setCenter(markerBounds.getCenter());
+                                        map.setZoom(16);
+                                    } else {
+                                        map.fitBounds(markerBounds);
+                                    }
                                 }
                             }
                         });
                     }
-
                 });
             }
         };
