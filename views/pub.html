@@ -1,8 +1,8 @@
 <div class="page-single-pub">
-    <div ng-if="$ctrl.pubData.photos && $ctrl.pubData.photos.length > 1" class="single-pub-images">
-        <elements-swiper
-            elements="$ctrl.getImagesPath($ctrl.pubData.photos)">
-        </elements-swiper>
+    <div class="single-pub-images">
+        <photos-swiper
+            photos="$ctrl.getImagesPath($ctrl.pubData.photos)">
+        </photos-swiper>
     </div>
     <div class="pub-details">
         <a ng-link="['Pub', { id: pub.id }]" class="pub-title">{{ ::$ctrl.pubData.name }}</a>
