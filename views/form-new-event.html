@@ -13,9 +13,11 @@
             <div>
                 <input id="event-description" type="text" ng-model="description" placeholder="descripción del evento" required>
             </div>
+
             <div>
                 <categories ng-model="category" ></categories>
             </div>
+
             <div>
                 <button id="event-button" ng-click="notifyEvent()" ng-disabled="event.$invalid"> Crear </button>
             </div>
