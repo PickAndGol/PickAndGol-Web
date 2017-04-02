@@ -25,7 +25,7 @@ var ctrl = function (pubsService, usersService) {
             });
 
         // Get image
-        self.getImagePath = pubsService.getImagePath;
+        self.getMainImagePath = pubsService.getMainImagePath;
 
     };
 

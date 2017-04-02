@@ -46,7 +46,9 @@ var ctrl = function (pubsService, PubDefaults) {
     self.getPubs(self.pageNumber);
 
     // Get image path
-    self.getImagePath = pubsService.getImagePath;
+    self.getMainImagePath = pubsService.getMainImagePath;
+
+
 
 };
 

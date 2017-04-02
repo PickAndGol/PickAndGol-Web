@@ -13,7 +13,7 @@
             dir-paginate="pub in $ctrl.pubs|itemsPerPage:$ctrl.pubsPerPage"
             total-items="$ctrl.totalPubs">
             <div class="pub-item-container">
-                <img ng-src="{{ ::$ctrl.getImagePath(pub.photo_url) }}">
+                <img ng-src="{{ ::$ctrl.getMainImagePath(pub.photos) }}">
                 <div class="pub-detail">
                     <a ng-link="['Pub', { id: pub._id }]" class="pub-title">
                         <h1>{{ ::pub.name }}</h1>

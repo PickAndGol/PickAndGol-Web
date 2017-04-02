@@ -21,10 +21,20 @@ angular
             return $http.get(Properties.serverUrl + Properties.endpointPubs + "/" + pubId);
         };
 
-        this.getImagePath = function (path) {
-            const defaultPath = '/static/pubs/pub-default.jpg';
+        this.getMainImagePath = function (images) {
+            console.log('images',images);
+            if (images && images.length > 0 ){
+                return images[0];
+            }
+            return '/static/pubs/pub-default.jpg';
+        };
 
-            return path || defaultPath;
+        this.getImagesPath = function (images) {
+            console.log('images',images);
+            if (images && images.length > 0 ){
+                return images;
+            }
+            return ['/static/pubs/pub-default.jpg'];
         };
 
         this.savePub = function (pub) {
