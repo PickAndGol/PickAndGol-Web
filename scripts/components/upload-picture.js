@@ -31,11 +31,18 @@ angular.module("pickandgol").component("uploadPicture", {
         var self = this;
 
         self.creds = {
-            bucket: 'balate',
+            bucket: 'pickandgol',
             access_key: 'AKIAIB7DZRGUTJTBRN2Q',
             secret_key: '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'
         };
 
+        self.selectDocument = function(document) {
+            self.file = document;
+        };
+
+        self.deselectDocument = function() {
+            self.file = undefined;
+        };
 
         self.upload = function () {
 
