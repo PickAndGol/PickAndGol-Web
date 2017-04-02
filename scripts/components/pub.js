@@ -29,12 +29,19 @@ var ctrl = function (pubsService, usersService) {
 
     };
 
-/*
-    // Future get favorite pubs
+
+
     self.$onInit = function () {
-        self.favoritePubs = pubsService.getFavoritePubs();
+        // Future get favorite pubs
+        //self.favoritePubs = pubsService.getFavoritePubs();
+
+        //$(document).ready(function() {		// function to initialize Bootstrap's carousel
+            $('.carousel').carousel({
+                interval: 2000
+            })
+        //});
     };
-*/
+
     // Get image absolute path
     //self.getImagePath = pubsService.getImageAbsolutePath;
 
