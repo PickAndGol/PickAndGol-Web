@@ -21,32 +21,32 @@ angular
 
                     if (elements && elements[0]){
 
-                        let markers = _.map(elements, 'location.coordinates');
+                        const mapDom = document.getElementsByClassName('elements-map')[0];
 
-                        let map = new google.maps.Map(document.getElementsByClassName('elements-map')[0], {
-                            zoom: 80
-                            //center: {lat: -34.397, lng: 150.644},
-                        });
+                        let map = new google.maps.Map(mapDom);
 
                         let markerBounds = new google.maps.LatLngBounds();
 
-                        let pendingMarkers = markers.length;
+                        let pendingMarkers = elements.length;
 
-                        _.each(markers, (marker) => {
+                        _.each(elements, (element) => {
+                            let location = element.location.coordinates;
+
                             let point = new google.maps.LatLng(
-                                marker[0],
-                                marker[1]);
+                                location[0],
+                                location[1]);
                             // Draw a marker for each random point
                             new google.maps.Marker({
                                 position: point,
-                                map: map
+                                map: map,
+                                title: element.name
                             });
 
                             // Extend markerBounds with each random point.
                             markerBounds.extend(point);
 
                             if (--pendingMarkers === 0){
-                                if (markers.length === 1){
+                                if (elements.length === 1){
                                     map.setCenter(markerBounds.getCenter());
                                     map.setZoom(16);
                                 } else {
