@@ -2,6 +2,21 @@
     <div ng-if="$ctrl.pubData.photos.length === 1" class="single-pub-img-container">
         <img ng-src="{{ ::$ctrl.getMainImagePath($ctrl.pubData.photos) }}">
     </div>
+    <div ng-if="$ctrl.pubData.photos.length > 1" class="swiper-container" style="width: 600px; height: 300px;">
+        <div class="swiper-wrapper">
+            <div ng-repeat="photo in ::$ctrl.pubData.photos"
+                class="swiper-slide">
+                {{photo}}
+                <!--img ng-src="{{ photo }}"-->
+                <img src="/static/events/default-match.jpg">
+            </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <!-- Pagination-->
+        <div class="swiper-pagination"></div>
+    </div>
     <div class="pub-details">
         <a ng-link="['Pub', { id: pub.id }]" class="pub-title">{{ ::$ctrl.pubData.name }}</a>
         <p class="pub-description">{{ ::$ctrl.pubData.description }}</p>

@@ -13,6 +13,10 @@ var ctrl = function (pubsService, usersService) {
                 // General data
                 self.pubData = response.data.data;
 
+                if (self.pubData.photos && self.pubData.photos.length > 1){
+                    self.initializeSwiper();
+                }
+
                 const token = sessionStorage.getItem('pickandgolToken');
                 if (token && self.pubData.creator){
                     self.canGetUser = true;
@@ -26,6 +30,29 @@ var ctrl = function (pubsService, usersService) {
 
         // Get image
         self.getMainImagePath = pubsService.getMainImagePath;
+
+        self.initializeSwiper = () => {
+            angular.element(document).ready(function () {
+                console.log('swiper');
+                var mySwiper = new Swiper ('.swiper-container', {
+                    loop: true,
+                    observer: true,
+                    updateOnImagesReady: true,
+
+                    // If we need pagination
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+
+                    // Navigation arrows
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+
+                    // And if we need scrollbar
+                    //scrollbar: '.swiper-scrollbar',
+                });
+                console.log('mySwiper',mySwiper);
+            });
+        };
 
     };
 

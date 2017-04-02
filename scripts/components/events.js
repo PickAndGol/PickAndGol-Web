@@ -5,7 +5,6 @@ var ctrl = function (eventsService, categoriesService, EventDefaults) {
     // so we save it on self var
     var self = this;
 
-    // initialize events filters
     self.eventsFilters = {};
 
     self.categories = {};

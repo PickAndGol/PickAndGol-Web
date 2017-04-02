@@ -27,7 +27,8 @@
     "lodash": "^4.17.4",
     "rupture": "^0.6.2",
     "skeleton-css": "^2.0.4",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "swiper": "^3.4.2"
   },
   "devDependencies": {
     "concurrently": "^2.1.0",
