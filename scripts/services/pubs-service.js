@@ -29,7 +29,6 @@ angular
         };
 
         this.getImagesPath = function (images) {
-            console.log('images',images);
             if (images && images.length > 0 ){
                 return images;
             }

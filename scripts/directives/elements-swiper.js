@@ -17,33 +17,23 @@ angular
             // Establish directive logic or manipulate DOM in view
             link: function (scope) {
 
-                 //scope.$onInit = () => {
+                angular.element(document).ready(function () {
 
-                    //self.initializeSwiper = () => {
-                        angular.element(document).ready(function () {
-                            console.log('swiper');
-                            console.log('scope.elements',scope.elements);
-                            var mySwiper = new Swiper ('.swiper-container', {
-                                loop: true,
-                                observer: true,
-                                updateOnImagesReady: true,
+                    var mySwiper = new Swiper ('.swiper-container', {
+                        // Optionals
+                        loop: true,
+                        observer: true,
+                        updateOnImagesReady: true,
 
-                                // If we need pagination
-                                pagination: '.swiper-pagination',
-                                paginationClickable: true,
+                        // Psagination
+                        pagination: '.swiper-pagination',
+                        paginationClickable: true,
 
-                                // Navigation arrows
-                                nextButton: '.swiper-button-next',
-                                prevButton: '.swiper-button-prev',
-                            });
-                            console.log('mySwiper',mySwiper);
-                            //mySwiper.initObservers()
-                        });
-                    //};
-                 //};
-
-
-
+                        // Navigation arrows
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                    });
+                });
             }
         };
     });

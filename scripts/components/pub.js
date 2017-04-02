@@ -12,11 +12,6 @@ var ctrl = function (pubsService, usersService) {
             .then( function (response) {
                 // General data
                 self.pubData = response.data.data;
-/*
-                if (self.pubData.photos && self.pubData.photos.length > 1){
-                    self.initializeSwiper();
-                }
-*/
 
                 const token = sessionStorage.getItem('pickandgolToken');
                 if (token && self.pubData.creator){
