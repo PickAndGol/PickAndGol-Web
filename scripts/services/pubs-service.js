@@ -1,7 +1,7 @@
 
 angular
     .module("pickandgol")
-    .service("pubsService", function ($http, Properties, UrlConversionsFactory) {
+    .service("pubsService", function ($http, Properties, PubDefaults, UrlConversionsFactory) {
         // All functionality that you want to export has to be published here
 
         this.getPubs = function (filters) {
@@ -22,11 +22,10 @@ angular
         };
 
         this.getMainImagePath = function (images) {
-            console.log('images',images);
             if (images && images.length > 0 ){
                 return images[0];
             }
-            return '/static/pubs/pub-default.jpg';
+            return PubDefaults.defaultPubImage;
         };
 
         this.getImagesPath = function (images) {
@@ -34,7 +33,7 @@ angular
             if (images && images.length > 0 ){
                 return images;
             }
-            return ['/static/pubs/pub-default.jpg'];
+            return [PubDefaults.defaultPubImage];
         };
 
         this.savePub = function (pub) {
