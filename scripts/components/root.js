@@ -46,11 +46,7 @@ angular
                 path: "/pubs/:id",
                 component: "pub"
             },
-            {
-                name: "Foto",
-                path: "/uploadpicture",
-                component: "uploadPicture"
-            },
+
         ],
         templateUrl: "views/root.html"
     });

@@ -4,27 +4,8 @@
 
 
 angular.module("pickandgol").component("uploadPicture", {
-    /*    bindings: {
-     $router: "<"
-     },
 
-     restrict: 'AE',
-     templateUrl: "views/aws-picture.html",
-     scope: {
-     file: '@'
-     },
-     link: function (scope, el, attrs) {
-     el.bind('change', function (event) {
-     var files = event.target.files;
-     var file = files[0];
-     scope.file = file;
-     scope.$parent.file = file;
-     scope.$apply();
-     });
-     },*/
-
-    templateUrl: "views/form-picture.html",
-
+    templateUrl: "views/upload-picture.html",
 
     controller: function(){
 
@@ -32,8 +13,8 @@ angular.module("pickandgol").component("uploadPicture", {
 
         self.creds = {
             bucket: 'pickandgol',
-            access_key: 'AKIAIB7DZRGUTJTBRN2Q',
-            secret_key: '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'
+            access_key: 'AKIAIKCFUMJOEYAVF47Q',
+            secret_key: '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'
         };
 
         self.selectDocument = function(document) {
@@ -51,7 +32,7 @@ angular.module("pickandgol").component("uploadPicture", {
             AWS.config.update({accessKeyId: self.creds.access_key, secretAccessKey: self.creds.secret_key});
             AWS.config.region = 'eu-west-1';
             var bucket = new AWS.S3({params: {Bucket: self.creds.bucket}});
-            console.log('entrandooooooooo'+ self.file);
+
 
             if (self.file) {
                 console.log('entrandooooooooo fileee');

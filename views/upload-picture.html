@@ -1,0 +1,8 @@
+ <div>Añadir una imagen</div>
+    <input type="file"
+               aws-picture
+               on-select="$ctrl.selectDocument($document)"
+               on-deselect="$ctrl.deselectDocument()" />
+    <a type="button" class="btn btn-default" ng-click="$ctrl.upload()">Upload</a>
+
+ </div>
