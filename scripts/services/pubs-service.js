@@ -10,6 +10,10 @@ angular
 
             // Check for filters to apply
             if (filters && Object.keys(filters).length > 0){
+
+                if (filters.name !== undefined){
+                    filters.text = filters.name;
+                }
                 // Add filters as url parameters
                 url += UrlConversionsFactory.objectToUrlParams(filters);
             }
