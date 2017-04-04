@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="twelve columns">
+        <form name="event">
+            <div>
+                <h5>Registre su local</h5>
+            </div>
+            <div>
+                <input id="pub-name" type="text" ng-model="name" placeholder="Nombre del local" required>
+            </div>
+            <label>
+                Localización GPS
+            </label>
+            <div>
+                <div>
+                    <input id="pub-location-lon" type="text" ng-model="longitud" placeholder="longitud" required>
+                </div>
+                <div>
+                    <input id="pub-location-lat" type="text" ng-model="latitud" placeholder="latitud" required>
+                </div>
+            </div>
+
+            <div>
+                <input id="pub-url" type="url" ng-model="urlWeb" placeholder="web del local" required>
+            </div>
+            <div>
+                <upload-picture> subir foto</upload-picture>
+            </div>
+            <div>
+                <button id="pub-button" ng-click="notifyPub()" ng-disabled="pub.$invalid"> Registrar </button>
+            </div>
+        </form>
+    </div>
+</div>

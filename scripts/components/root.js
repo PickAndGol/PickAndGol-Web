@@ -46,6 +46,11 @@ angular
                 path: "/pubs/:id",
                 component: "pub"
             },
+            {
+                name: "NewPub",
+                path: "/register-pub/",
+                component: "newPub"
+            },
 
         ],
         templateUrl: "views/root.html"
