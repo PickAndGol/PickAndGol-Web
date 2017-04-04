@@ -34,8 +34,8 @@ angular
                                 let location = element.location.coordinates;
 
                                 let point = new google.maps.LatLng(
-                                    location[0],
-                                    location[1]);
+                                    location[1],
+                                    location[0]);
                                 // Draw a marker for each random point
                                 new google.maps.Marker({
                                     position: point,
