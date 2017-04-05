@@ -17,11 +17,12 @@ angular.module("pickandgol").component("newUser",{
                 password:password,
                 email:email
             };
+
             usersService.saveUser(user).then(function (response) {
-                var errorDescription = response.data.data.description;
-                var responseError = response.data.result;
-                var codeError =  response.data.data.code;
-                var userName = user.name;
+                const errorDescription = response.data.data.description;
+                const responseError = response.data.result;
+                const codeError =  response.data.data.code;
+                const userName = user.name;
 
                 if (responseError === "ERROR"){
                     console.log("Error: "+ codeError, errorDescription);

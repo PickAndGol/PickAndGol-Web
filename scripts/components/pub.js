@@ -1,5 +1,5 @@
 
-var ctrl = function (pubsService, usersService) {
+var ctrl = function (pubsService, usersService, AuthFactory) {
     // Save component reference
     var self = this;
 
@@ -15,8 +15,9 @@ var ctrl = function (pubsService, usersService) {
 
                 self.images = self.getImagesPath(self.pubData.photos);
 
-                const token = sessionStorage.getItem('pickandgolToken');
-                if (token && self.pubData.creator){
+                if (AuthFactory.checkUserLogged()
+                    && self.pubData.creator) {
+
                     self.canGetUser = true;
 
                     usersService.getUser(self.pubData.creator)
@@ -45,7 +46,12 @@ var ctrl = function (pubsService, usersService) {
 };
 
 
-ctrl.$inject = ["pubsService", "usersService", "$sce"];
+ctrl.$inject = [
+    "pubsService",
+    "usersService",
+    "AuthFactory",
+    "$sce"
+];
 
 angular
     .module("pickandgol")

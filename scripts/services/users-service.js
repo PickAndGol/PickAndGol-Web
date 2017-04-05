@@ -1,7 +1,7 @@
 
 angular
     .module("pickandgol")
-    .service("usersService", function ($http, Properties) {
+    .service("usersService", function ($http, Properties, AuthFactory) {
         // All functionality that you want to export has to be published here
 
         this.saveUser = function (user) {
@@ -26,14 +26,18 @@ angular
         };
 
         this.getUser = (userId) => {
-            const token = sessionStorage.getItem('pickandgolToken');
-            //if (token) {
-            return $http.get(Properties.serverUrl +
-                    Properties.endpointUsers +
-                    "/" + userId
-                    + "?token="+ token);
-            //}
-            //return;
+            let url = Properties.serverUrl +
+                        Properties.endpointUsers +
+                        "/" + userId;
+
+            let userIsLogged = AuthFactory.checkUserLogged();
+
+            if (userIsLogged) {
+                const token = AuthFactory.getUserToken();
+                url += "?token="+ token;
+            }
+
+            return $http.get(url);
         };
 
         this.getImagePath = function (path) {

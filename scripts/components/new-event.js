@@ -2,74 +2,84 @@
  * Created by balate on 5/3/17.
  */
 
-
-var ctrl = function (eventsService){
-
-    // get token by sessionStorage
-    var usertoken = sessionStorage.getItem('pickandgolToken');
+var ctrl = function (eventsService, AuthFactory){
 
     var self = this;
 
-    self.saveEvent = function(name,date,description,category,pub,token) {
+    self.saveEvent = function(name,date,description,category,pub) {
 
-        token = usertoken;
+        let userIsLogged = AuthFactory.checkUserLogged();
 
-        var event = {
-            name: name,
-            date: date,
-            description: description,
-            category: category,
-            pub: pub,
-            token: token
-        };
+        if (userIsLogged) {
+            const token = AuthFactory.getUserToken();
 
-        eventsService.saveEvent(event).then(function(response) {
-            const errorDescription = response.data.data.description;
-            const responseError = response.data.result;
-            const codeError =  response.data.data.code;
-            const nameEvent = event.name;
+            var event = {
+                name: name,
+                date: date,
+                description: description,
+                category: category,
+                pub: pub,
+                token: token
+            };
 
-            if (responseError === "ERROR"){
-                console.log("Error: "+ codeError + " " + errorDescription);
+            eventsService.saveEvent(event).then(function(response) {
+                const errorDescription = response.data.data.description;
+                const responseError = response.data.result;
+                const codeError =  response.data.data.code;
+                const nameEvent = event.name;
 
-                switch (codeError) {
-                case 400:
-                    alert("Asegurate de completar todos los datos y que estos sean validos");
-                    break;
+                if (responseError === "ERROR"){
+                    console.log("Error: "+ codeError, errorDescription);
 
-                case 409:
-                    alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
-                    break;
+                    switch (codeError) {
+                    case 400:
+                        alert("Asegurate de completar todos los datos y que estos sean validos");
+                        break;
 
-                case 404:
-                    alert("ERROR: El evento debe estar asociado a un bar");
-                    break;
+                    case 409:
+                        alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
+                        break;
 
-                default:
-                    alert("Error desconocido");
-                    break;
+                    case 404:
+                        alert("ERROR: El evento debe estar asociado a un bar");
+                        break;
+
+                    case 401:
+                        alert("ERROR: Tu sesión ha expirado");
+                        AuthFactory.logoutUser();
+                        break;
+
+                    default:
+                        alert("Error desconocido");
+                        break;
+                    }
+
+                    return;
                 }
 
-                return;
-            }
+                alert("Evento "+ nameEvent +" creado!! ");
+                window.location.href= "/events";
 
-            alert("Evento "+ nameEvent +" creado!! ");
-            window.location.href= "/events";
+            })
+            .catch((error) => {
 
-        })
-        .catch((error) => {
-            const errorDescription = error.data.data.description;
-            const responseError = error.data.result;
-            const codeError =  error.data.data.code;
-
-            alert("Error desconocido");
-            console.log("Error: ", error);
-        });
+                alert("Error desconocido");
+                console.log("Error: ", error);
+            });
+        } else {
+            alert ("Debe hacer login para crear un nuevo evento");
+        }
     };
+
+
 };
 
-ctrl.$inject = ["eventsService",
-                "categoriesService"];
+ctrl.$inject = [
+    "eventsService",
+    "categoriesService",
+    "AuthFactory"
+];
+
 angular
     .module("pickandgol")
     .component("newEvent", {
