@@ -1,21 +1,23 @@
 <div class="page-single-pub">
     <h2 class="pub-title">{{ ::$ctrl.pubData.name }}</h2>
-    <div class="single-pub-images">
-        <photos-swiper
-            photos="$ctrl.images">
-        </photos-swiper>
-    </div>
-    <div class="pub-details">
-        <p class="pub-description">{{ ::$ctrl.pubData.description }}</p>
-        <p class="pub-category">{{ ::$ctrl.pubData.category.name }}</p>
-        <div ng-if="$ctrl.canGetUser" class="user-view">
-            <simple-user userdata="::$ctrl.creatorData"></simple-user>
+    <div>
+        <div class="single-pub-images-container">
+            <photos-swiper
+                photos="$ctrl.images">
+            </photos-swiper>
+
+            <p class="pub-category">{{ ::$ctrl.pubData.category.name }}</p>
         </div>
-        <elements-map
-            elements="[$ctrl.pubData]">
-        </elements-map>
-    </div>
-    <div class="create-event-container">
-        <new-event pub="::$ctrl.pubData._id"></new-event>
+        <div class="pub-details">
+            <div ng-if="$ctrl.canGetUser" class="user-view">
+                <simple-user userdata="::$ctrl.creatorData"></simple-user>
+            </div>
+            <elements-map
+                elements="[$ctrl.pubData]">
+            </elements-map>
+        </div>
+        <div class="create-event-container">
+            <new-event pub="::$ctrl.pubData._id"></new-event>
+        </div>
     </div>
 </div>
