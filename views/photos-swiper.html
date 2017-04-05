@@ -1,5 +1,5 @@
 <div ng-if="photos.length === 1" class="single-pub-img-container">
-    <img ng-src="{{ photos[0] }}">
+    <img ng-src="{{ ::photos[0] }}">
 </div>
 <div ng-if="photos.length > 1" class="swiper-container" style="width: 300px; height: 300px;">
     <div class="swiper-wrapper">

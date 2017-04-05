@@ -13,17 +13,6 @@ var ctrl = function (eventsService){
 
     var self = this;
 
-    /* categoriesService.getCategories().then(function(response){
-     //get categories
-     //self.categories = response.data.data.items.name;
-     var items = response.data.data;
-
-     self.categories = response.data.data.items;
-     console.log(response);
-     console.log(items);
-     console.log(self.categories);
-     });*/
-
     self.saveEvent = function(name,date,description,category,pub,token) {
         pub = userpub;
         token = usertoken;

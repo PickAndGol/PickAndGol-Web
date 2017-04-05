@@ -1,13 +1,13 @@
 <div class="page-single-pub">
+    <h2 class="pub-title">{{ ::$ctrl.pubData.name }}</h2>
     <div class="single-pub-images">
         <photos-swiper
-            photos="$ctrl.getImagesPath($ctrl.pubData.photos)">
+            photos="$ctrl.images">
         </photos-swiper>
     </div>
     <div class="pub-details">
-        <a ng-link="['Pub', { id: pub.id }]" class="pub-title">{{ ::$ctrl.pubData.name }}</a>
         <p class="pub-description">{{ ::$ctrl.pubData.description }}</p>
-        <!--p class="pub-category">{{ $ctrl.pubData.category.name }}</p-->
+        <p class="pub-category">{{ ::$ctrl.pubData.category.name }}</p>
         <div ng-if="$ctrl.canGetUser" class="user-view">
             <simple-user userdata="::$ctrl.creatorData"></simple-user>
         </div>

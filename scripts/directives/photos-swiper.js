@@ -16,23 +16,30 @@ angular
             },
             // Establish directive logic or manipulate DOM in view
             link: function (scope) {
+                scope.$watch('photos', function (photos) {
+                    // Check if Swiper is needed
+                    if (scope.photos && scope.photos.length >1){
+                        // Bind document ready
+                        angular.element(document).ready(function () {
+                            console.log('scope.photos',scope.photos);
 
-                angular.element(document).ready(function () {
+                            // Swiper
+                            const imagesSwiper = new Swiper ('.swiper-container', {
+                                // Optionals
+                                loop: true,
+                                observer: true,
+                                updateOnImagesReady: true,
 
-                    var mySwiper = new Swiper ('.swiper-container', {
-                        // Optionals
-                        loop: true,
-                        observer: true,
-                        updateOnImagesReady: true,
+                                // Pagination
+                                pagination: '.swiper-pagination',
+                                paginationClickable: true,
 
-                        // Psagination
-                        pagination: '.swiper-pagination',
-                        paginationClickable: true,
-
-                        // Navigation arrows
-                        nextButton: '.swiper-button-next',
-                        prevButton: '.swiper-button-prev',
-                    });
+                                // Navigation arrows
+                                nextButton: '.swiper-button-next',
+                                prevButton: '.swiper-button-prev',
+                            });
+                        });
+                    }
                 });
             }
         };
