@@ -8,15 +8,11 @@ var ctrl = function (eventsService){
     // get token by sessionStorage
     var usertoken = sessionStorage.getItem('pickandgolToken');
 
-    //TODO:get id pub in details of bar, the user. Details Bar pending develop
-    var userpub = "58c53a9292b33d06a10ca1f4";
-
     var self = this;
 
     self.saveEvent = function(name,date,description,category,pub,token) {
-        pub = userpub;
+
         token = usertoken;
-        //date = datee;
 
         var event = {
             name: name,
@@ -67,7 +63,7 @@ var ctrl = function (eventsService){
             const codeError =  error.data.data.code;
 
             alert("Error desconocido");
-            console.log("Error: "+ error);
+            console.log("Error: ", error);
         });
     };
 };
@@ -78,7 +74,8 @@ angular
     .module("pickandgol")
     .component("newEvent", {
         bindings: {
-            $router: "<"
+            $router: "<",
+            pub: "<"
         },
         templateUrl: "views/event-register.html",
         controller: ctrl

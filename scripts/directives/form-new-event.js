@@ -8,15 +8,19 @@ angular.module("pickandgol").directive("formNewEvent", function () {
         restrict: "EA",
         templateUrl: "views/form-new-event.html",
         scope:{
-            saveToClick: "&"
+            saveToClick: "&",
+            pub: "<"
         },
         link: function(scope){
 
             scope.notifyEvent = function(){
-                scope.saveToClick({ name: scope.name,
+                scope.saveToClick({
+                    name: scope.name,
                     date: scope.date,
                     category: scope.category,
-                    description: scope.description});
+                    description: scope.description,
+                    pub: scope.pub
+                });
             };
 
         }

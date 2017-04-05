@@ -21,7 +21,6 @@ angular
                     if (scope.photos && scope.photos.length >1){
                         // Bind document ready
                         angular.element(document).ready(function () {
-                            console.log('scope.photos',scope.photos);
 
                             // Swiper
                             const imagesSwiper = new Swiper ('.swiper-container', {

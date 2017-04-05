@@ -4,6 +4,7 @@
             <div>
                 <h5>Crear un nuevo evento</h5>
             </div>
+            <input type="hidden" ng-model="$ctrl.pub"/>
             <div>
                 <input id="event-name" type="text" ng-model="name" placeholder="Nombre del evento" required>
             </div>
@@ -18,7 +19,7 @@
             </div>
 
             <div>
-                <categories ng-model="category" ></categories>
+                <categories ng-model="category"></categories>
             </div>
 
             <div>
