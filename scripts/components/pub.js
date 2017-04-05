@@ -13,6 +13,8 @@ var ctrl = function (pubsService, usersService) {
                 // General data
                 self.pubData = response.data.data;
 
+                self.images = self.getImagesPath(self.pubData.photos);
+
                 const token = sessionStorage.getItem('pickandgolToken');
                 if (token && self.pubData.creator){
                     self.canGetUser = true;
@@ -36,8 +38,6 @@ var ctrl = function (pubsService, usersService) {
         self.favoritePubs = pubsService.getFavoritePubs();
     };
 */
-    // Get image absolute path
-    //self.getImagePath = pubsService.getImageAbsolutePath;
 
     // Manage favourite pubs
     //self.toggleFavorite = pubsService.toggleFavorite;
