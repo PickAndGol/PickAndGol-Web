@@ -9,10 +9,13 @@ angular
                 + Properties.endpointEvents;
 
             // Check for filters to apply
-            if (filters && Object.keys(filters).length > 0){
-                // Add filters as url parameters
-                url += UrlConversionsFactory.objectToUrlParams(filters);
+            if (!filters){
+                filters = {};
             }
+            filters.populate_pub_data = "name location";
+
+            // Add filters as url parameters
+            url += UrlConversionsFactory.objectToUrlParams(filters);
 
             return $http.get(url);
         };
