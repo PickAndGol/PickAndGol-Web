@@ -3,6 +3,7 @@
         <input type="search"
             name="event-text"
             id="event-text-filter"
+            placeholder="🔍 Buscar"
             ng-model="$ctrl.eventsFilters.text"
             ng-change="$ctrl.getEventsInPage(1)"
             ng-model-options="{debounce: 1000}"/>
@@ -11,6 +12,7 @@
             id="event-category-filter"
             ng-model="$ctrl.eventsFilters.text"
             ng-change="$ctrl.getEventsInPage(1)">
+            <option value="">Ninguna categoría</option>
             <option ng-repeat="category in $ctrl.categories"
                 value="{{ ::category._id }}">
                 {{ ::category.name }}

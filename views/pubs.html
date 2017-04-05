@@ -3,6 +3,7 @@
         <input type="search"
             name="pub-name"
             id="pub-name-filter"
+            placeholder="🔍 Buscar"
             ng-model="$ctrl.pubsFilters.name"
             ng-change="$ctrl.getPubsInPage(1)"
             ng-model-options="{debounce: 1000}"/>
