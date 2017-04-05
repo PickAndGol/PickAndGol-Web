@@ -3,7 +3,7 @@
  */
 
 
-var ctrl = function (eventsService,categoriesService){
+var ctrl = function (eventsService){
 
     // get token by sessionStorage
     var usertoken = sessionStorage.getItem('pickandgolToken');
@@ -29,36 +29,59 @@ var ctrl = function (eventsService,categoriesService){
         token = usertoken;
         //date = datee;
 
-        var event = {   name: name,
-            date:date,
-            description:description,
-            category:category,
-            pub:pub,
-            token:token};
-        eventsService.saveEvent(event).then(function(response) {
-            console.log(event);
-            console.log("data....",response.data);
-            console.log("response full", response);
-            var errorDescription = response.data.data.description;
-            var codeError =  response.data.data.code;
-            var nameEvent = event.name;
+        var event = {
+            name: name,
+            date: date,
+            description: description,
+            category: category,
+            pub: pub,
+            token: token
+        };
 
-            if(codeError=== 400){
+        eventsService.saveEvent(event).then(function(response) {
+            const errorDescription = response.data.data.description;
+            const responseError = response.data.result;
+            const codeError =  response.data.data.code;
+            const nameEvent = event.name;
+
+            if (responseError === "ERROR"){
                 console.log("Error: "+ codeError + " " + errorDescription);
-                alert("Error 400");
-            }else if (codeError=== 409){
-                console.log("Error: "+ codeError + " " + errorDescription);
-                alert("ERROR: 409");
-            }else if (codeError === 404){
-                console.log("Error: "+ codeError+ " " + errorDescription);
-                alert("ERROR: 404, debes de añadir un pub");
-            }else{
-                alert("Evento "+ nameEvent +" creado!! ");
-                window.location.href= "/events";
+
+                switch (codeError) {
+                case 400:
+                    alert("Asegurate de completar todos los datos y que estos sean validos");
+                    break;
+
+                case 409:
+                    alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
+                    break;
+
+                case 404:
+                    alert("ERROR: El evento debe estar asociado a un bar");
+                    break;
+
+                default:
+                    alert("Error desconocido");
+                    break;
+                }
+
+                return;
             }
+
+            alert("Evento "+ nameEvent +" creado!! ");
+            window.location.href= "/events";
+
+        })
+        .catch((error) => {
+            const errorDescription = error.data.data.description;
+            const responseError = error.data.result;
+            const codeError =  error.data.data.code;
+
+            alert("Error desconocido");
+            console.log("Error: "+ error);
         });
     };
-}
+};
 
 ctrl.$inject = ["eventsService",
                 "categoriesService"];

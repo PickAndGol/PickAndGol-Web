@@ -12,8 +12,9 @@ var ctrl = function (categoriesService) {
             self.categories = response.data.data.items;
             self.totalcategories = response.data.data.total;
 
-            console.log(self.categories ,'categories');
+            //console.log(self.categories ,'categories');
         });
+
     self.saveCategory = function(name,_id){
         var category = {   name: name,
             _id:_id};
@@ -22,12 +23,8 @@ var ctrl = function (categoriesService) {
             console.log(category);
             console.log("data Category....",response.data);
         });
-    
+
     };
-
-
-    // Get image path
-    //self.getImagePath = eventsService.getImagePath;
 
 };
 
