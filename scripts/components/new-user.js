@@ -18,17 +18,13 @@ angular.module("pickandgol").component("newUser",{
                 email:email
             };
             usersService.saveUser(user).then(function (response) {
-                //console.log(user);
-                // $scope.user.push(response.data);
-                //console.log("data....",response.data);
-                //console.log("response full", response);
                 var errorDescription = response.data.data.description;
                 var responseError = response.data.result;
                 var codeError =  response.data.data.code;
                 var userName = user.name;
 
                 if (responseError === "ERROR"){
-                    console.log("Error: "+ codeError + " " + errorDescription);
+                    console.log("Error: "+ codeError, errorDescription);
 
                     switch (codeError) {
                     case 400:
@@ -50,6 +46,10 @@ angular.module("pickandgol").component("newUser",{
                 alert("Usuario "+ userName +" registrado!! ");
                 window.location.href= "/events";
 
+            })
+            .catch((error) => {
+                alert("Error desconocido");
+                console.log("Error: "+ error);
             });
         };
     }
