@@ -8,24 +8,22 @@ var ctrl = function (pubsService){
 
     var self = this;
 
-    self.savePub = function(name,urlPhoto,longitud,latitud,urlWeb,ownerId,token) {
-        ownerId = '0000000';
+    self.savePub = function(name,longitude,latitude,urlWeb,token) {
+
         token = usertoken;
 
         var pub = {   name: name,
-            urlPhoto:urlPhoto,
-            longitud:longitud,
-            latitud:latitud,
+            longitude:longitude,
+            latitude:latitude,
             urlWeb:urlWeb,
-            ownerId:ownerId,
             token:token};
         pubsService.savePub(pub).then(function(response) {
             console.log(pub);
             console.log("data....",response.data);
             console.log("response full", response);
-            var errorDescription = response.data.data.description;
+            var errorDescription = response.data.data.errmsg;
             var codeError =  response.data.data.code;
-            var nameEvent = pub.name;
+            var namePub = pub.name;
 
             if(codeError=== 400){
                 console.log("Error: "+ codeError + " " + errorDescription);
@@ -36,8 +34,12 @@ var ctrl = function (pubsService){
             }else if (codeError === 404){
                 console.log("Error: "+ codeError+ " " + errorDescription);
                 alert("ERROR: 404, debes de añadir un pub");
-            }else{
-                alert("Pubs "+ nameEvent +" creado!! ");
+            }else if (codeError === 500){
+                console.log("Error: "+ codeError+ " " + errorDescription);
+            }
+
+            else{
+                alert("Pubs "+ namePub +" creado!! ");
                 window.location.href= "/pubs";
             }
         });

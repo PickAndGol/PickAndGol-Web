@@ -13,9 +13,8 @@ angular.module("pickandgol").directive("formNewPub", function () {
 
             scope.notifyPub = function(){
                 scope.saveToClick({ name: scope.name,
-                    longitud: scope.longitud,
-                    latitud: scope.latitud,
-                    urlphoto: scope.urlphoto,
+                    longitude: scope.longitude,
+                    latitude: scope.latitude,
                     urlWeb: scope.urlWeb});
             };
         }
