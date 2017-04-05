@@ -2,7 +2,7 @@
  * Created by balate on 1/3/17.
  */
 
-var ctrl = function (usersService) {
+var ctrl = function (usersService, AuthFactory) {
     var self = this;
 
     self.loginUser = function(password,email) {
@@ -11,7 +11,6 @@ var ctrl = function (usersService) {
             email:email
         };
         usersService.loginUser(login).then(function(response) {
-            console.log(login);
 
             var loginData = response.data.code;
             var idUser = response.data.id;
@@ -53,7 +52,7 @@ var ctrl = function (usersService) {
 
             self.$router.navigate(["/Events"]);
             if (typeof(Storage) !== "undefined"){
-                sessionStorage.setItem("pickandgolToken", tokenUser);
+                AuthFactory.loginUser(tokenUser);
             }
             alert("Usuario "+ response.data.data.name +" Logueado!! ");
 
@@ -61,7 +60,7 @@ var ctrl = function (usersService) {
     };
 };
 
-ctrl.$inject = ["usersService"];
+ctrl.$inject = ["usersService", "AuthFactory"];
 
 angular
     .module("pickandgol")

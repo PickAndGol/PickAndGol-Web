@@ -1,5 +1,5 @@
 
-var ctrl = function (eventsService, usersService) {
+var ctrl = function (eventsService, usersService, AuthFactory) {
     // Save component reference
     var self = this;
 
@@ -13,8 +13,9 @@ var ctrl = function (eventsService, usersService) {
                 // General data
                 self.eventData = response.data.data;
 
-                const token = sessionStorage.getItem('pickandgolToken');
-                if (token && self.eventData.creator){
+                if (AuthFactory.checkUserLogged()
+                    && self.eventData.creator) {
+
                     self.canGetUser = true;
 
                     usersService.getUser(self.eventData.creator)
@@ -44,7 +45,12 @@ var ctrl = function (eventsService, usersService) {
 };
 
 
-ctrl.$inject = ["eventsService", "usersService", "$sce"];
+ctrl.$inject = [
+    "eventsService",
+    "usersService",
+    "AuthFactory",
+    "$sce"
+];
 
 angular
     .module("pickandgol")

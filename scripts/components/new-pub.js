@@ -2,51 +2,72 @@
  * Created by balate on 3/4/17.
  */
 
-var ctrl = function (pubsService){
-    // get token by sessionStorage
-    var usertoken = sessionStorage.getItem('pickandgolToken');
+var ctrl = function (pubsService, AuthFactory){
 
     var self = this;
 
-    self.savePub = function(name,longitude,latitude,urlWeb,token) {
+    self.savePub = function(name,longitude,latitude,urlWeb) {
 
-        token = usertoken;
+        let userIsLogged = AuthFactory.checkUserLogged();
 
-        var pub = {   name: name,
-            longitude:longitude,
-            latitude:latitude,
-            urlWeb:urlWeb,
-            token:token};
-        pubsService.savePub(pub).then(function(response) {
-            console.log(pub);
-            console.log("data....",response.data);
-            console.log("response full", response);
-            var errorDescription = response.data.data.errmsg;
-            var codeError =  response.data.data.code;
-            var namePub = pub.name;
+        if (userIsLogged) {
+            const token = AuthFactory.getUserToken();
 
-            if(codeError=== 400){
-                console.log("Error: "+ codeError + " " + errorDescription);
-                alert("Error 400");
-            }else if (codeError=== 409){
-                console.log("Error: "+ codeError + " " + errorDescription);
-                alert("ERROR: 409");
-            }else if (codeError === 404){
-                console.log("Error: "+ codeError+ " " + errorDescription);
-                alert("ERROR: 404, debes de añadir un pub");
-            }else if (codeError === 500){
-                console.log("Error: "+ codeError+ " " + errorDescription);
-            }
+            var pub = {
+                name: name,
+                longitude:longitude,
+                latitude:latitude,
+                urlWeb:urlWeb,
+                token:token
+            };
 
-            else{
-                alert("Pubs "+ namePub +" creado!! ");
-                window.location.href= "/pubs";
-            }
-        });
+            pubsService.savePub(pub).then(function(response) {
+                const errorDescription = response.data.data.errmsg;
+                const responseError = response.data.result;
+                const codeError =  response.data.data.code;
+                const namePub = pub.name;
+
+                if (responseError === "ERROR"){
+                    console.log("Error: "+ codeError, errorDescription);
+
+                    switch (codeError) {
+                    case 400:
+                        alert("Asegurate de completar todos los datos y que estos sean validos");
+                        break;
+
+                    case 409:
+                        alert("ERROR: Conflicto con el email o el usuario introducido, ya esta registrado. Pruebe hacer login antes");
+                        break;
+
+                    case 401:
+                        alert("ERROR: Tu sesión ha expirado");
+                        AuthFactory.logoutUser();
+                        break;
+
+                    default:
+                        alert("Error desconocido");
+                        break;
+                    }
+
+                    return;
+                }
+
+                alert("Bar "+ namePub +" creado!! ");
+                window.location.href= "/events";
+
+            })
+            .catch((error) => {
+                alert("Error desconocido");
+                console.log("Error: "+ error);
+            });
+        } else {
+            alert ("Debe hacer login para crear un nuevo bar");
+        }
+
     };
 }
 
-ctrl.$inject = ["pubsService"];
+ctrl.$inject = ["pubsService", "AuthFactory"];
 angular
     .module("pickandgol")
     .component("newPub", {
