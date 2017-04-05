@@ -30,11 +30,6 @@ angular
                 path: "/events/:id",
                 component: "event"
             },
-            {
-                name: "NewEvent",
-                path: "/new-event",
-                component: "newEvent"
-            },
             // Pubs
             {
                 name: "Pubs",
