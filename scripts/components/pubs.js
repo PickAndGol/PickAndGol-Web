@@ -1,12 +1,26 @@
 
 
-var ctrl = function (pubsService, PubDefaults) {
+var ctrl = function (pubsService, PubDefaults, GeoLocationFactory) {
     // this references context, this context is the one we need,
     // so we save it on self var
     var self = this;
 
     // initialize pubs filters
     self.pubsFilters = {};
+
+    self.currentLocation = null;
+
+    self.getCurrentLocation = () => {
+        GeoLocationFactory.getCurrentLocation() // Returns a promise
+            .then( (locationData) => {
+                self.currentLocation = locationData;
+                self.pubsFilters.latitude = locationData.latitude;
+                self.pubsFilters.longitude = locationData.longitude;
+                self.getPubsInPage(1);
+            });
+    };
+
+    self.getCurrentLocation();
 
     // Initialize pagination
     self.pubs = []; // declare an empty array
@@ -23,6 +37,7 @@ var ctrl = function (pubsService, PubDefaults) {
                 self.totalPubs = response.data.data.total;
             });
     };
+
 
     // Get pubs with changed page
     self.getPubsInPage = (pageNumber) => {
@@ -48,11 +63,14 @@ var ctrl = function (pubsService, PubDefaults) {
     // Get image path
     self.getMainImagePath = pubsService.getMainImagePath;
 
+    // Get current location
+    self.getCurrentLocation = GeoLocationFactory.getCurrentLocation;
 };
 
 ctrl.$inject = [
     "pubsService",
-    "PubDefaults"
+    "PubDefaults",
+    "GeoLocationFactory"
 ];
 
 angular
