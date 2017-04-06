@@ -10,7 +10,7 @@
 
         <select name="event-category"
             id="event-category-filter"
-            ng-model="$ctrl.eventsFilters.text"
+            ng-model="$ctrl.eventsFilters.category"
             ng-change="$ctrl.getEventsInPage(1)">
             <option value="">Ninguna categoría</option>
             <option ng-repeat="category in $ctrl.categories"
