@@ -1,6 +1,6 @@
 
 
-var ctrl = function (pubsService, PubDefaults, GeoLocationFactory) {
+var ctrl = function (pubsService, usersService, PubDefaults, GeoLocationFactory) {
     // this references context, this context is the one we need,
     // so we save it on self var
     var self = this;
@@ -12,7 +12,7 @@ var ctrl = function (pubsService, PubDefaults, GeoLocationFactory) {
 
     self.getCurrentLocation = () => {
         GeoLocationFactory.getCurrentLocation() // Returns a promise
-            .then( (locationData) => {
+            .then((locationData) => {
                 self.currentLocation = locationData;
                 self.pubsFilters.latitude = locationData.latitude;
                 self.pubsFilters.longitude = locationData.longitude;
@@ -65,10 +65,12 @@ var ctrl = function (pubsService, PubDefaults, GeoLocationFactory) {
 
     // Get current location
     self.getCurrentLocation = GeoLocationFactory.getCurrentLocation;
+
 };
 
 ctrl.$inject = [
     "pubsService",
+    "usersService",
     "PubDefaults",
     "GeoLocationFactory"
 ];

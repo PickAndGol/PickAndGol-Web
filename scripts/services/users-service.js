@@ -46,4 +46,80 @@ angular
             return path || defaultPath;
         };
 
+        this.getFavoritePubs = () => {
+            const userIsLogged = AuthFactory.checkUserLogged();
+            if (userIsLogged) {
+                const userId = AuthFactory.getUserId();
+                const token = AuthFactory.getUserToken();
+
+                const url = Properties.serverUrl +
+                        Properties.endpointUsers +
+                        "/" + userId +
+                        "/favorites" +
+                        "?token="+ token;
+
+                return $http.get(url);
+            }
+            return false;
+        };
+
+        this.getFavoritePubsIds = () => {
+
+            let userIsLogged = AuthFactory.checkUserLogged();
+
+            if (userIsLogged) {
+                const userId = AuthFactory.getUserId();
+                const token = AuthFactory.getUserToken();
+                let url = Properties.serverUrl +
+                            Properties.endpointUsers +
+                            "/" + userId;
+                url += "?token="+ token;
+
+                $http.get(url).then((response)=>{
+                    return response.data.data.favorite_pubs;
+                })
+                .catch((error) => {
+                    return false;
+                });
+            } else {
+                return false;
+            }
+        };
+
+        this.addFavoritePub = (pubId) => {
+            const userIsLogged = AuthFactory.checkUserLogged();
+            if (userIsLogged) {
+                const userId = AuthFactory.getUserId();
+                const token = AuthFactory.getUserToken();
+
+                const url = Properties.serverUrl +
+                        Properties.endpointUsers +
+                        "/" + userId +
+                        "/favorites" +
+                        "/" + pubId +
+                        "?token="+ token;
+
+                return $http.post(url);
+            }
+            return false;
+        };
+
+        this.deleteFavoritePub = (pubId) => {
+            const userIsLogged = AuthFactory.checkUserLogged();
+            if (userIsLogged) {
+                const userId = AuthFactory.getUserId();
+                const token = AuthFactory.getUserToken();
+
+                const url = Properties.serverUrl +
+                        Properties.endpointUsers +
+                        "/" + userId +
+                        "/favorites" +
+                        "/" + pubId +
+                        "?token="+ token;
+
+                return $http.delete(url);
+            }
+            return false;
+        };
+
     });

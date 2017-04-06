@@ -3,6 +3,8 @@ var ctrl = function (pubsService, usersService, AuthFactory) {
     // Save component reference
     var self = this;
 
+    self.favoritePubs = [];
+
     self.$routerOnActivate = function(next) {
 
         // Get Pub Data
@@ -27,22 +29,43 @@ var ctrl = function (pubsService, usersService, AuthFactory) {
                 }
             });
 
-        // Get images
-        self.getMainImagePath = pubsService.getMainImagePath;
-        self.getImagesPath = pubsService.getImagesPath;
 
-        self.checkUserLogged = AuthFactory.checkUserLogged;
     };
 
-/*
-    // Future get favorite pubs
+    // Get images
+    self.getMainImagePath = pubsService.getMainImagePath;
+    self.getImagesPath = pubsService.getImagesPath;
+
+    self.checkUserLogged = AuthFactory.checkUserLogged;
+
+    if (AuthFactory.checkUserLogged()){
+        const userId = AuthFactory.getUserId();
+        usersService.getUser(userId)
+            .then((response) => {
+                self.favoritePubs = response.data.data.favorite_pubs;
+            });
+    }
+
+
+    self.addFavoritePub = () => {
+        const pubId = self.pubData._id;
+        let promise = usersService.addFavoritePub(pubId);
+
+        promise.then((response) => {
+            const responseError = response.data.result;
+            if (responseError !== "ERROR"){
+                self.favoritePubs.push(pubId);
+            }
+        });
+    };
+
+
+    // Get favorite pubs
     self.$onInit = function () {
-        self.favoritePubs = pubsService.getFavoritePubs();
+        if (AuthFactory.checkUserLogged()){
+            self.favoritePubs = usersService.getFavoritePubsIds();
+        }
     };
-*/
-
-    // Manage favourite pubs
-    //self.toggleFavorite = pubsService.toggleFavorite;
 
 };
 
