@@ -10,7 +10,7 @@ var ctrl = function (usersService, AuthFactory) {
             password:password,
             email:email
         };
-        usersService.loginUser(login).then(function(response) {
+        usersService.loginUser(login).then((response) => {
 
             var loginData = response.data.code;
             var idUser = response.data.id;
@@ -56,6 +56,10 @@ var ctrl = function (usersService, AuthFactory) {
             }
             alert("Usuario "+ response.data.data.name +" Logueado!! ");
 
+        })
+        .catch((error) => {
+            alert("Error desconocido");
+            console.log("Error: "+ error);
         });
     };
 };

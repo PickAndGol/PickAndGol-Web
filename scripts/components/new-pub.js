@@ -6,6 +6,8 @@ var ctrl = function (pubsService, AuthFactory){
 
     var self = this;
 
+    self.checkUserLogged = AuthFactory.checkUserLogged;
+
     self.savePub = function(name,longitude,latitude,urlWeb) {
 
         let userIsLogged = AuthFactory.checkUserLogged();
@@ -65,7 +67,8 @@ var ctrl = function (pubsService, AuthFactory){
         }
 
     };
-}
+
+};
 
 ctrl.$inject = ["pubsService", "AuthFactory"];
 angular
