@@ -8,6 +8,14 @@
             ng-change="$ctrl.getPubsInPage(1)"
             ng-model-options="{debounce: 1000}"/>
         </select>
+        <input ng-if="$ctrl.currentLocation !== null" type="search"
+            name="pub-name"
+            id="pub-name-filter"
+            placeholder="🌎 Radio en metros"
+            ng-model="$ctrl.pubsFilters.radius"
+            ng-change="$ctrl.getPubsInPage(1)"
+            ng-model-options="{debounce: 1000}"/>
+        </select>
     </div>
     <div class="pub-items">
         <article class="pub-item"
