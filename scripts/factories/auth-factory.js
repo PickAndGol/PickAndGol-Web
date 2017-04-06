@@ -2,28 +2,32 @@
 angular
     .module("pickandgol")
     .factory("AuthFactory", function () {
-        const storageKey = "pickandgolToken";
+        const tokenKey = "pickandgolToken";
+        const userIdKey = "pickandgolAuthUser";
         let isUserLogged = false;
 
-        if (sessionStorage.getItem(storageKey)){
+        if (sessionStorage.getItem(tokenKey)){
             isUserLogged = true;
         }
 
         const auth = {
-            loginUser: (token) => {
-                console.log('loginUser');
-                sessionStorage.setItem(storageKey, token);
+            loginUser: (token, userId) => {
+                sessionStorage.setItem(tokenKey, token);
+                sessionStorage.setItem(userIdKey, userId);
                 isUserLogged = true;
             },
             getUserToken: () => {
-                return sessionStorage.getItem(storageKey);
+                return sessionStorage.getItem(tokenKey);
+            },
+            getUserId: () => {
+                return sessionStorage.getItem(userIdKey);
             },
             logoutUser: () => {
-                localStorage.removeItem(storageKey);
-                isUserLogged = true;
+                localStorage.removeItem(tokenKey);
+                localStorage.removeItem(userIdKey);
+                isUserLogged = false;
             },
             checkUserLogged: () => {
-                console.log('isUserLogged',isUserLogged);
                 return isUserLogged;
             }
         };

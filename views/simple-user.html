@@ -5,6 +5,6 @@
         </div-->
     </div>
     <div class="user-nick-container">
-        Creado por <span class="user-nick">{{ $ctrl.userdata.name }}</span>
+        Creado por <a ng-link="[User, { id: $ctrl.userdata._id }]" class="user-nick">{{ $ctrl.userdata.name }}</a>
     </div>
 </div>

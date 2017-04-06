@@ -9,6 +9,10 @@ angular
                 path: "/login",
                 component: "newLogin"
             }, {
+                name: "User",
+                path: "/user",
+                component: "user",
+            }, {
                 name: "NewUser",
                 path: "/new-user",
                 component: "newUser",

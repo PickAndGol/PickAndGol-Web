@@ -50,9 +50,11 @@ var ctrl = function (usersService, AuthFactory) {
                 return;
             }
 
+            let userData = response.data.data;
+
             self.$router.navigate(["/Events"]);
             if (typeof(Storage) !== "undefined"){
-                AuthFactory.loginUser(tokenUser);
+                AuthFactory.loginUser(tokenUser, userData.id);
             }
             alert("Usuario "+ response.data.data.name +" Logueado!! ");
 

@@ -1,7 +1,7 @@
 
 angular
     .module("pickandgol")
-    .service("usersService", function ($http, Properties, AuthFactory) {
+    .service("usersService", function ($http, Properties, UserDefaults, AuthFactory) {
         // All functionality that you want to export has to be published here
 
         this.saveUser = function (user) {
@@ -41,7 +41,7 @@ angular
         };
 
         this.getImagePath = function (path) {
-            const defaultPath = '/static/users/default-user.png';
+            const defaultPath = UserDefaults.defaultUserImage;
 
             return path || defaultPath;
         };

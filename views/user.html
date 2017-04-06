@@ -1,0 +1,14 @@
+<div class="user-page">
+    <div class="user-container">
+        <div class="user-avatar-container">
+            <img ng-src="{{ $ctrl.getImagePath($ctrl.userData.photo_url) }}" alt="user avatar" class="user-avatar">
+        </div-->
+    </div>
+    <div class="user-data-container">
+        <h2 class="user-nick">{{ $ctrl.userData.name }}</h2>
+        <p class="user-email">{{ $ctrl.userData.email }}</p>
+    </div>
+    <div ng-if="!$ctrl.checkUserLogged()" class="no-logged-user">
+        <p>Este podrías ser tú. <a ng-link="['NewUser']">Regístrate</a> para poder formar parte de la comunidad</p>
+    </div>
+</div>
