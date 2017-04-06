@@ -25,6 +25,10 @@ angular
 
                         let map = new google.maps.Map(mapDom);
 
+                        let infowindow = new google.maps.InfoWindow({
+                            content: ''
+                        });
+
                         let markerBounds = new google.maps.LatLngBounds();
 
                         let pendingMarkers = elements.length;
@@ -37,10 +41,16 @@ angular
                                     location[1],
                                     location[0]);
                                 // Draw a marker for each random point
-                                new google.maps.Marker({
+                                let marker = new google.maps.Marker({
                                     position: point,
                                     map: map,
                                     title: element.name
+                                });
+
+                                // Add infowindow to each marker
+                                google.maps.event.addListener(marker, 'click', function() {
+                                    infowindow.setContent(element.name);
+                                    infowindow.open(map, marker);
                                 });
 
                                 // Extend markerBounds with each random point.
