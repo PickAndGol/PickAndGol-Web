@@ -5,7 +5,6 @@ angular.module(
     [
         "ngComponentRouter",
         "angularUtils.directives.dirPagination"
-        //"dahr.ng-haversine",
     ]);
 
 // Configure provider $locationProvider.

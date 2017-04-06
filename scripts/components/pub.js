@@ -31,6 +31,7 @@ var ctrl = function (pubsService, usersService, AuthFactory) {
         self.getMainImagePath = pubsService.getMainImagePath;
         self.getImagesPath = pubsService.getImagesPath;
 
+        self.checkUserLogged = AuthFactory.checkUserLogged;
     };
 
 /*

@@ -1,4 +1,8 @@
 <div class="row">
-    <div class="twelve columns" ></div>
-    <form-new-pub save-to-click="$ctrl.savePub(name,longitude,latitude,urlWeb,token)"></form-new-pub>
+    <form-new-pub ng-if="$ctrl.checkUserLogged()" save-to-click="$ctrl.savePub(name,longitude,latitude,urlWeb,token)"></form-new-pub>
+
+    <div ng-if="!$ctrl.checkUserLogged()">
+        <h2>Lo sentimos, es necesario <a ng-link="['Login']">loguearse</a> para poder crear bares</h2>
+        <img src="/static/cannot-default.jpg" alt="sad beer">
+    </div>
 </div>
