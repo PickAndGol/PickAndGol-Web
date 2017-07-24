@@ -25,3 +25,5 @@ npm-debug.log
 *.stackdump
 
 .sass-cache/*
+
+/scripts/components/upload-picture.js
